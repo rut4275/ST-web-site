@@ -1,0 +1,164 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<div class="moviesOpenList"  template="ngIf moviesTypeOpen">
+  <h1  >הקרנות פתוחות</h1>
+  <span style="width:50%; text-align:right;  display: inline-block;"><input name="login" type="submit" value="Sign In" ></span>
+
+  <table class="table table-bordered table-sm m-0" >
+    <thead class="">
+        <tr>
+            <th style="text-align: center;">שם איש קשר בתרבות</th>
+            <th style="text-align: center;">שם איש קשר מטעמינו</th>
+            <th style="text-align: center;">שם סרט</th>
+            <th style="text-align: center;">כתובת ההקרנה</th>
+            <th style="text-align: center;">תאריך ההקרנה</th>
+            <th style="text-align: center;">צהרים/ערב</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  class="" *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
+          <td style="text-align: center;">{{item.ContactCulture.ContactFirstName}} {{item.ContactCulture.ContactLastName}}</td>
+          <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
+          <td style="text-align: center;">{{item.Film.FilmName}}</td>
+          <td style="text-align: center;">{{item.City.CityName}}: {{item.CityAddress}}</td>
+          <td style="text-align: center;">{{item.MovieDate }}</td> <!-- | date:'dd/MM/yyyy' -->
+          <td  style="text-align: center;">בינתיים צהרים</td>
+          
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<ng-template #showCloseMoviesList>
+  <h1  >הקרנות סגורות</h1>
+
+  <table class="table table-bordered table-sm m-0">
+    <thead class="">
+        <tr>
+            <th style="text-align: center;">שם איש קשר בתרבות</th>
+            <th style="text-align: center;">שם איש קשר מטעמינו</th>
+            <th style="text-align: center;">שם סרט</th>
+            <th style="text-align: center;">כתובת ההקרנה</th>
+            <th style="text-align: center;">תאריך ההקרנה</th>
+            <th style="text-align: center;">צהרים/ערב</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
+          <td style="text-align: center;">{{item.ContactCulture.ContactFirstName}} {{item.ContactCulture.ContactLastName}}</td>
+          <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
+          <td style="text-align: center;">{{item.Film.FilmName}}</td>
+          <td style="text-align: center;">{{item.City.CityName}}: {{item.CityAddress}}</td>
+          <td style="text-align: center;">{{item.MovieDate }}</td> <!--| date:'dd/MM/yyyy' -->
+          <td  style="text-align: center;">בינתיים צהרים</td>
+          
+        </tr>
+    </tbody>
+</table>
+</ng-template>
+ <!-- <table id="closeMovie">
+    <tr>
+        <td>שם מזמין</td>
+        <td>שם סרט</td>
+        <td>כתובת ההקרנה</td>
+        <td>תאריך הקרנה</td>
+        <td>סוג ההקרנה</td>
+        <td>נייד נאמנת</td>
+        <td>תשלום סך הכל</td>
+        <td>שולם</td>
+    </tr>
+    <tr *ngFor="let item of MoviesList"  (click)="goToEdit(item.BooksOrdersId,true)">
+        <td>{{item.Customer.CustomerName}}</td>
+        <td>{{item.Customer.CustomerCategory.CategoryName}}</td>
+        <td><ul><li *ngFor="let book of item.BooksOrderItem">{{book.Book.NameBook}} | {{book.Quantity}}</li></ul></td>
+        <td>{{item.TotalPrice}}</td>
+        <td>{{item.Supplied}}</td>
+    </tr>
+</table> -->
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  -->
+<!------ Include the above in your HEAD tag ---------->
+<!------ 
+<form class="form-compact" action="">
+            <div class="row paddingBottom20">
+                <div class="container col-4">
+                    <div class="row">
+                        <h6 class="text-center col-12 mb-0">Contact Information</h6>
+                        <sub class="text-right text-muted col-12"><a href="#" tabindex="-1"><i class="far fa-edit"></i></a></sub>
+                    </div>
+                    <div class="dropdown-divider mb-3"></div>
+                    <div class="form-group row">
+                        <label for="firstName" class="col-4 col-form-label-sm text-right">First Name:</label> 
+                        <div class="col-8">
+                            <div class="input-group"> 
+                                <input id="firstName" name="text" type="text" class="form-control form-control-sm" readonly>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="form-group row align-items-center">
+                        <label for="lastName" class="col-4 col-form-label-sm text-right">Last Name:</label> 
+                        <div class="col-8">
+                          <div class="input-group"> 
+                            <input id="lastName" name="text" type="text" class="form-control form-control-sm" readonly>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="position" class="col-4 col-form-label-sm text-right">Position:</label> 
+                        <div class="col-8">
+                          <div class="input-group"> 
+                            <select id="position" class="form-control" disabled>
+                                <option></option>
+                                <option>Shift Supervisor</option>
+                                <option>Airport Manager</option>
+                                <option>District Manager</option>
+                                <option>Regional Manager</option>
+                                <option>Terrirory Performance Manager</option>
+                                <option>Ops. Manage</option>
+                                <option>Other</option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="emailAddress" class="col-4 col-form-label-sm text-right">Email Address:</label> 
+                        <div class="col-8">
+                          <div class="input-group"> 
+                            <input id="emailAddress" name="text" type="email" class="form-control form-control-sm extendable">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="office" class="col-4 col-form-label-sm text-right">Office:</label> 
+                        <div class="col-8">
+                          <div class="input-group">
+                            <input id="office" name="text" type="number" class="form-control form-control-sm" readonly>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="cell" class="col-4 col-form-label-sm text-right">Cell:</label> 
+                        <div class="col-8">
+                          <div class="input-group">
+                            <input id="cell" name="text" type="number" class="form-control form-control-sm" readonly>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form> ---------->
+
+
+
+
+        more
+
+
+
+        

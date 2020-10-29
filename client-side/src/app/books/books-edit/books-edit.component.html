@@ -1,0 +1,173 @@
+<body style="margin-left: -20%; margin-top: -3%;">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container contact-form">
+    <!-- <p-scrollPanel style="width: 80%; height: 80%; margin-bottom: 20%;"> -->
+    <form class="form" [formGroup]="BooksOrderForm" *ngIf="_booksOrder" method="post">
+        <h4>פרטי הזמנה: {{_booksOrder.Customer.CustomerName}}</h4>
+        <br>
+            <div class="row">
+                <div class="col-md-6" *ngIf="flag1">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי לקוח</label>
+                            <br>
+                            <label for="CustomerId">קוד</label>
+                            <input style="text-align: right;" type="number" id="CustomerId" name="txtName" class="form-control" formControlName="CustomerId" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="CustomerName">שם</label>
+                            <input style="text-align: right;" type="text" id="CustomerName" name="txtName" class="form-control" formControlName="CustomerName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="CustomerAddress">כתובת</label>
+                            <input style="text-align: right;" type="text" id="CustomerAddress" name="txtName" class="form-control" formControlName="CustomerAddress" value="" />
+                        </div>
+                </div>
+                <div class="col-md-6" *ngIf="flag1">
+                        <div style="text-align: right;" class="form-group">
+                            <label for="CustomerCategorymerName">קטגוריה</label>
+                            <input style="text-align: right;" type="text" id="CustomerCategorymerName" name="txtName" class="form-control" formControlName="CustomerCategorymerName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="Note">הערה</label>
+                            <input style="text-align: right;" type="text" id="Note" name="txtName" class="form-control" formControlName="Note" value="" />
+                        </div>
+                        <div style="text-align: left;" class="form-group">
+                            <br><br>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="next2()"></button>
+                        </div>
+                </div>
+                <div class="col-md-6" *ngIf="flag2">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי הזמנה</label>
+                            <br>
+                            <label for="OrderDate">תאריך ביצוע ההזמנה</label>
+                            <input style="text-align: right;" type="date" id="OrderDate" name="txtName" class="form-control" formControlName="OrderDate" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="TotalPrice">סה"כ לתשלום</label>
+                            <input style="text-align: right;" type="number" id="TotalPrice" name="txtName" class="form-control" formControlName="TotalPrice" value="" />
+                        </div>
+                </div>
+                <div class="col-md-6" *ngIf="flag2">
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">בתשלום מראש
+                            <input [(ngModel)]="_booksOrder.AcceptLiscence" type="checkbox" class="custom-control-input" formControlName="AcceptLiscence"/>
+                            <span class="custom-control-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">הנפקת קבלה
+                            <input [(ngModel)]="_booksOrder.WithReceipt" type="checkbox" class="custom-control-input" formControlName="WithReceipt"/>
+                            <span class="custom-control-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">שולם
+                            <input  [(ngModel)]="_booksOrder.Paid" type="checkbox" class="custom-control-input" formControlName="Paid"/>
+                            <span class="custom-control-indicator"></span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <fieldset [disabled]="!_booksOrder.Paid" > 
+                            <label class="custom-control custom-checkbox">סופק
+                            <input [(ngModel)]="_booksOrder.Supplied" type="checkbox" class="custom-control-input" formControlName="Supplied"/>
+                            <span class="custom-control-indicator"></span>
+                            </label>
+                            </fieldset>
+                            
+                        </div>
+                        <div style="text-align: left;" class="form-group">
+                            <br><br>
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="back1()"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="next3()"></button>
+                        </div>
+                </div>
+                <div class="col-md-6" *ngIf="flag3">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי איש קשר</label>
+                            <br>
+                            <label for="ContactFirstName">שם פרטי</label>
+                            <input style="text-align: right;" type="text" id="ContactFirstName" name="txtName" class="form-control" formControlName="ContactFirstName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactLastName">שם משפחה</label>
+                            <input style="text-align: right;" type="text" id="ContactLastName" name="txtName" class="form-control" formControlName="ContactLastName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactEmail">אמייל</label>
+                            <input style="text-align: right;" type="text" id="ContactEmail" name="txtName" class="form-control" formControlName="ContactEmail" value="" />
+                        </div>
+                </div>
+                <div class="col-md-6" *ngIf="flag3">
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactPhone">מספר פלאפון</label>
+                            <input style="text-align: right;" type="text" id="ContactPhone" name="txtName" class="form-control" formControlName="ContactPhone" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactAddress">כתובת</label>
+                            <input style="text-align: right;" type="text" id="ContactAddress" name="txtName" class="form-control" formControlName="ContactAddress" value="" />
+                        </div>
+                        <div style="text-align: left;" class="form-group">
+                            <br><br>
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="back2()"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="next4()"></button>
+                        </div>
+                </div>
+                <div class="col-md-6" *ngIf="flag4">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">ספרים שהוזמנו:</label>
+                        </div>
+                       
+                        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                        <!------ Include the above in your HEAD tag ---------->
+                        
+                            <!-- <main class="container pt-5"> -->
+                                <div class="card mb-5">
+                                    <div style="text-align: center; background: #0264d6;" class="card-header" >
+                                        <p style="text-align: right; font-size: large; display: inline-block;">רשימת ספרים</p>
+                                    </div>
+                                    <div class="card-block p-0">
+                                        <table class="table table-bordered table-sm m-0">
+                                            <thead class="">
+                                                <tr>
+                                                    <th style="text-align: center;">שם ספר</th>
+                                                    <th style="text-align: center;">כמות</th>
+                                                    <th style="text-align: center;">סכום כולל</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of _booksOrder.BooksOrderItem">
+                                                    <td style="text-align: center;">{{item.Book.NameBook}}</td>
+                                                    <td style="text-align: center;">{{item.Quantity}}</td>
+                                                    <td style="text-align: center;">{{item.TotalPrice}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                   
+                                    <div class="card-footer p-0" style="background: #0264d6;">
+                                        <nav aria-label="...">
+                                            <ul class="pagination justify-content-end mt-3 mr-3"></ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- <button [disabled]="!BooksOrderForm.valid" (click)="saveNewBooksOrder()" *ngIf="flag">שמור</button> -->
+                                <!-- <button [disabled]="!BooksOrderForm.valid" (click)="updateBooksOrder()" *ngIf="!flag">עדכן</button> -->
+                            <div style="text-align: center;">
+                                <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="back3()"></button>
+                                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateBooksOrder()"></button>
+                            </div>
+                            <!-- </main> -->
+                </div>
+            </div>
+    </form>
+<!-- </p-scrollPanel> -->
+</div>
+</body>
+
