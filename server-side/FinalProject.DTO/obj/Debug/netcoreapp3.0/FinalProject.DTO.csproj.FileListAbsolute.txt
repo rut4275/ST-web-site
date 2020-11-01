@@ -1,0 +1,8 @@
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\bin\Debug\netcoreapp3.0\FinalProject.DTO.deps.json
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\bin\Debug\netcoreapp3.0\FinalProject.DTO.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\bin\Debug\netcoreapp3.0\FinalProject.DTO.pdb
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.0\FinalProject.DTO.csprojAssemblyReference.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.0\FinalProject.DTO.AssemblyInfoInputs.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.0\FinalProject.DTO.AssemblyInfo.cs
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.0\FinalProject.DTO.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.0\FinalProject.DTO.pdb

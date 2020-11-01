@@ -1,0 +1,13 @@
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.BL.deps.json
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.BL.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.BL.pdb
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.DL.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.Entities.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.DL.pdb
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\bin\Debug\netcoreapp3.0\FinalProject.Entities.pdb
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\obj\Debug\netcoreapp3.0\FinalProject.BL.csprojAssemblyReference.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\obj\Debug\netcoreapp3.0\FinalProject.BL.AssemblyInfoInputs.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\obj\Debug\netcoreapp3.0\FinalProject.BL.AssemblyInfo.cs
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\obj\Debug\netcoreapp3.0\FinalProject.BL.csproj.CopyComplete
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\obj\Debug\netcoreapp3.0\FinalProject.BL.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.BL\obj\Debug\netcoreapp3.0\FinalProject.BL.pdb
