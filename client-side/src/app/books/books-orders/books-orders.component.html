@@ -40,13 +40,13 @@
                         <td style="text-align: center;"(click)="goToEdit(item.BooksOrdersId,true)">עריכה</td>
                         <td style="text-align: center;">
                             <label class="custom-control custom-checkbox">
-                                <input type="checkbox" [(ngModel)]="item.Supplied" class="custom-control-input">
+                                <input type="checkbox" onclick="return false;"[(ngModel)]="item.Supplied" class="custom-control-input">
                                 <span class="custom-control-indicator"></span>
                             </label>
                         </td>
                         <td style="text-align: center;">
                             <label class="custom-control custom-checkbox">
-                                <input style="display: none;" type="checkbox" [(ngModel)]="item.Paid" class="custom-control-input-red">
+                                <input style="display: none;" type="checkbox" onclick="return false;"[(ngModel)]="item.Paid" class="custom-control-input-red">
                                 <span class="custom-control-indicator"></span>
                             </label>
                         </td>
