@@ -11,7 +11,6 @@ import { BooksNewOrderComponent } from './books/books-new-order/books-new-order.
 import { NevigateComponent } from './nevigate/nevigate/nevigate.component';
 import { MenuComponent } from './design/menu/menu.component';
 
-
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "login" },
   { path: "login", component: LoginUserComponent },

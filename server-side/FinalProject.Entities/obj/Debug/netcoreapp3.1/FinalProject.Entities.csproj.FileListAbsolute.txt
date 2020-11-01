@@ -34,3 +34,12 @@ C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProjec
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.CoreCompileInputs.cache
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.dll
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.deps.json
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csprojAssemblyReference.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.AssemblyInfoInputs.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.AssemblyInfo.cs
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.CoreCompileInputs.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.dll
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.pdb

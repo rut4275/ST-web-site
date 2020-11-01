@@ -27,6 +27,7 @@ namespace FinalProject.Models‏
 
         [JsonIgnore]
         public virtual ICollection<BooksCustomers> BooksCustomers { get; set; }
+        [JsonIgnore]
         public virtual ICollection<GuidanceRegistrants> GuidanceRegistrants { get; set; }
         [JsonIgnore]
         public virtual ICollection<MovieAdvertising> MovieAdvertising { get; set; }

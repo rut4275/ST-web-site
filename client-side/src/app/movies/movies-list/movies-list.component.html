@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr  class="" *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
+        <tr  *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
           <td style="text-align: center;">{{item.ContactCulture.ContactFirstName}} {{item.ContactCulture.ContactLastName}}</td>
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
           <td style="text-align: center;">{{item.Film.FilmName}}</td>

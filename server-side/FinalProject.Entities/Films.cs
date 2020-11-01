@@ -17,6 +17,7 @@ namespace FinalProject.Models‏
 
         [JsonIgnore]
         public virtual ICollection<MovieClose> MovieClose { get; set; }
+        [JsonIgnore]
         public virtual ICollection<MovieOpen> MovieOpen { get; set; }
     }
 }

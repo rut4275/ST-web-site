@@ -21,6 +21,7 @@ export class MoviesListComponent implements OnInit {
     _moviesService.getAllMoviesCloesFromServer().subscribe(data => {
       this.moviesCloseList = data;
       this.moviesTypeOpen=false;
+      console.log(this.moviesCloseList);
     },err =>{
       alert("שגיאה בטעינת טבלת הקרנות סגורות");
     });
@@ -31,6 +32,7 @@ export class MoviesListComponent implements OnInit {
     _moviesService.getAllMoviesOpenFromServer().subscribe(data => {
       this.moviesOpenList = data;
       this.moviesTypeOpen=true;
+      console.log(this.moviesOpenList);
       debugger
     },err =>{
       alert("שגיאה בטעינת טבלת הקרנות פתוחות");
