@@ -9,9 +9,9 @@
             <button style="width: 100%; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="הזמנה חדשה" class="p-button-rounded p-button-denger" (click)="newOrder()"></button>
         </div>
         <div class="p-toolbar-group-right">
-            <button style="width: 200%; left: -3%;" pButton pRipple type="button" label="סטטוס" class="p-button-rounded p-button-denger" (click)="sortListByStatus()"></button>
+            <!-- <button style="width: 200%; left: -3%;" pButton pRipple type="button" label="סטטוס" class="p-button-rounded p-button-denger" (click)="sortListByStatus()"></button>
             <button style="width: 200%; left: -1%;" pButton pRipple type="button" label="תאריך" class="p-button-rounded p-button-denger" (click)="sortListByDate()"></button>
-            <i pButton pRipple icon="pi pi-sort-alt"  class="p-button-rounded p-button-danger" style="width: 130%;"></i>
+            <i pButton pRipple icon="pi pi-sort-alt"  class="p-button-rounded p-button-danger" style="width: 130%;"></i> -->
         </div>
     </p-toolbar>
     <br>
@@ -30,8 +30,8 @@
                         <th style="text-align: center;"(click)="globalSort('Paid')">שולם</th>
                         <th style="text-align: center;"(click)="globalSort('TotalPrice')">הסכום לתשלום</th>
                         <th style="text-align: center;">רשימת ספרים</th>
-                        <th style="text-align: center;"(click)="globalSort('Customer')">קטגורית מזמין</th>
-                        <th style="text-align: center;"(click)="globalSort('Customer')">שם מזמין</th>
+                        <th style="text-align: center;"(click)="sortListByCustumerCategory()">קטגורית מזמין</th>
+                        <th style="text-align: center;"(click)="sortListByCustumerName()">שם מזמין</th>
                         <th style="text-align: center;"(click)="globalSort('OrderDate')">תאריך הזמנה</th>
                     </tr>
                 </thead>

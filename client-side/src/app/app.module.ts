@@ -8,6 +8,7 @@ import { LoginService } from './login.service';
 import { NotFoundPageComponent } from './not-found/not-found-page/not-found-page.component'
 import { RouterModule, Routes} from '@angular/router'
 import { BooksModule } from './books/books.module';
+import { MoviesModule } from './movies/movies.module';
 import { booksService } from './books.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +22,7 @@ import { moviesService } from './movies.service';
     
   ],
   imports: [
+    MoviesModule,
     BrowserModule,
     AppRoutingModule,
     LoginModule,

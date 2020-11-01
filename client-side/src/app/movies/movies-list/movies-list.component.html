@@ -1,21 +1,22 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 
 
 
-<div class="moviesOpenList"  template="ngIf moviesTypeOpen">
+  <div>{{moviesTypeOpen}}</div>
+<div class="moviesOpenList" *ngIf="!moviesTypeOpen"><!-- template="ngIf moviesTypeOpen!=true"  -->
   <h1  >הקרנות פתוחות</h1>
-  <span style="width:50%; text-align:right;  display: inline-block;"><input name="login" type="submit" value="Sign In" ></span>
+  <!-- <span style="width:50%; text-align:right;  display: inline-block;"><input name="login" type="submit" value="Sign In" ></span> -->
 
   <table class="table table-bordered table-sm m-0" >
     <thead class="">
         <tr>
-            <th style="text-align: center;">שם איש קשר בתרבות</th>
-            <th style="text-align: center;">שם איש קשר מטעמינו</th>
+            <th style="text-align: center;">שם <br/> איש קשר <br/> בתרבות</th>
+            <th style="text-align: center;">שם <br/> איש קשר<br/>  מטעמינו</th>
             <th style="text-align: center;">שם סרט</th>
-            <th style="text-align: center;">כתובת ההקרנה</th>
-            <th style="text-align: center;">תאריך ההקרנה</th>
+            <th style="text-align: center;">כתובת<br/> ההקרנה</th>
+            <th style="text-align: center;">תאריך<br/>  ההקרנה</th>
             <th style="text-align: center;">צהרים/ערב</th>
         </tr>
     </thead>
@@ -25,7 +26,7 @@
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
           <td style="text-align: center;">{{item.City.CityName}}: {{item.CityAddress}}</td>
-          <td style="text-align: center;">{{item.MovieDate }}</td> <!-- | date:'dd/MM/yyyy' -->
+          <td style="text-align: center;">{{item.MovieDate | date:'dd/MM/yyyy'}}</td> <!--  -->
           <td  style="text-align: center;">בינתיים צהרים</td>
           
         </tr>
@@ -33,33 +34,37 @@
 </table>
 </div>
 
-<ng-template #showCloseMoviesList>
+<!-- <ng-template #showCloseMoviesList> -->
+  <div class="moviesCloseList" *ngIf="moviesTypeOpen">
   <h1  >הקרנות סגורות</h1>
 
   <table class="table table-bordered table-sm m-0">
     <thead class="">
         <tr>
-            <th style="text-align: center;">שם איש קשר בתרבות</th>
-            <th style="text-align: center;">שם איש קשר מטעמינו</th>
-            <th style="text-align: center;">שם סרט</th>
+            <th style="text-align: center;">איש קשר בזמן האירוע</th>
+            <th style="text-align: center;">נאמנת</th>
+            <th style="text-align: center;">שם הסרט</th>
             <th style="text-align: center;">כתובת ההקרנה</th>
             <th style="text-align: center;">תאריך ההקרנה</th>
-            <th style="text-align: center;">צהרים/ערב</th>
+            <th style="text-align: center;">גלובלית/לראש</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
-          <td style="text-align: center;">{{item.ContactCulture.ContactFirstName}} {{item.ContactCulture.ContactLastName}}</td>
+        <tr *ngFor="let item of moviesCloseList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
+          <td style="text-align: center;">{{item.Contact.ContactFirstName}} {{item.Contact.ContactLastName}}</td>
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
-          <td style="text-align: center;">{{item.City.CityName}}: {{item.CityAddress}}</td>
-          <td style="text-align: center;">{{item.MovieDate }}</td> <!--| date:'dd/MM/yyyy' -->
-          <td  style="text-align: center;">בינתיים צהרים</td>
+          <td style="text-align: center;">{{item.MovieAddress}}</td>
+          <td style="text-align: center;">{{item.MovieDate| date:'dd/MM/yyyy' }}</td> <!-- -->
+          <td  style="text-align: center;">בינתיים גלובלית</td>
           
         </tr>
     </tbody>
 </table>
-</ng-template>
+</div>
+<!-- </ng-template> -->
+
+<div>{{moviesTypeOpen}}</div>
  <!-- <table id="closeMovie">
     <tr>
         <td>שם מזמין</td>

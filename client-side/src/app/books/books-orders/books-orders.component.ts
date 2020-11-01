@@ -83,6 +83,34 @@ export class BooksOrdersComponent implements OnInit {
     this.flag1 = this.flag2;
     this.flag2 = y;
   }
+    sortListByCustumerName(){
+    var s:classBooksOrders[] = this.BooksOrdersList.sort((n1,n2)=> {
+      if (n1.Customer.CustomerName>n2.Customer.CustomerName){
+        return this.flag1;
+      }
+      if(n1.Customer.CustomerName<n2.Customer.CustomerName){
+        return this.flag2;
+      }
+      return 0;
+    })
+    var y = this.flag1;
+    this.flag1 = this.flag2;
+    this.flag2 = y;
+  }
+  sortListByCustumerCategory(){
+    var s:classBooksOrders[] = this.BooksOrdersList.sort((n1,n2)=> {
+      if (n1.Customer.CustomerCategory.CategoryName>n2.Customer.CustomerCategory.CategoryName){
+        return this.flag1;
+      }
+      if(n1.Customer.CustomerCategory.CategoryName<n2.Customer.CustomerCategory.CategoryName){
+        return this.flag2;
+      }
+      return 0;
+    })
+    var y = this.flag1;
+    this.flag1 = this.flag2;
+    this.flag2 = y;
+  }
   ngOnInit(): void {
     
   }
