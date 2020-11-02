@@ -15,6 +15,10 @@ export class MoviesListComponent implements OnInit {
   public moviesCloseList:classMovieClose[];
   public moviesTypeOpen:boolean;
 
+
+  changType(isOpen:boolean){
+    this.moviesTypeOpen=isOpen;
+  }
   constructor(private _moviesService :moviesService, private _router: Router) {
     
     //טעינת הקרנות סגורות 

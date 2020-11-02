@@ -1,12 +1,12 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
 
   <div>{{moviesTypeOpen}}</div>
-<div class="moviesOpenList" *ngIf="!moviesTypeOpen"><!-- template="ngIf moviesTypeOpen!=true"  -->
-  <h1  >הקרנות פתוחות</h1>
+<div class="moviesOpenList" *ngIf="moviesTypeOpen"><!-- template="ngIf moviesTypeOpen!=true"  -->
+  <h1  >הקרנות פתוחות</h1><button (click)="changType(false)">להקרנות סגורות</button>
   <!-- <span style="width:50%; text-align:right;  display: inline-block;"><input name="login" type="submit" value="Sign In" ></span> -->
 
   <table class="table table-bordered table-sm m-0" >
@@ -33,10 +33,11 @@
     </tbody>
 </table>
 </div>
+<button>הקרנה חדשה</button>
 
 <!-- <ng-template #showCloseMoviesList> -->
-  <div class="moviesCloseList" *ngIf="moviesTypeOpen">
-  <h1  >הקרנות סגורות</h1>
+  <div class="moviesCloseList" *ngIf="!moviesTypeOpen">
+  <h1  >הקרנות סגורות</h1><button (click)="changType(true)">להקרנות פתוחות</button>
 
   <table class="table table-bordered table-sm m-0">
     <thead class="">
