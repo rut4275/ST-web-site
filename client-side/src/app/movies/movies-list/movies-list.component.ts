@@ -19,6 +19,10 @@ export class MoviesListComponent implements OnInit {
   changType(isOpen:boolean){
     this.moviesTypeOpen=isOpen;
   }
+
+  newMovie(){
+    
+  }
   constructor(private _moviesService :moviesService, private _router: Router) {
     
     //טעינת הקרנות סגורות 
