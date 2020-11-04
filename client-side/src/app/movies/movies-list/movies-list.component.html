@@ -16,8 +16,8 @@
 <div class="moviesOpenList" *ngIf="moviesTypeOpen"> <!-- template="ngIf moviesTypeOpen!=true"  -->
   <div class="card mb-5">
     <div  style="text-align: right; background: #0264d6;" class="card-header">
-        <p style="text-align: center; font-size: large; font-weight: bold;">הקרנות פתוחות</p><br>
-        <button (click)="changType(false)">להקרנות סגורות</button>
+        <p style="text-align: center; font-size: large; font-weight: bold;">הקרנות פתוחות</p><br/>
+        <button style="position:relative;left:-46%;"(click)="moviesTypeOpen=false">להקרנות סגורות</button>
     </div>
   <!-- <span style="width:50%; text-align:right;  display: inline-block;"><input name="login" type="submit" value="Sign In" ></span> -->
 
@@ -50,8 +50,8 @@
   <div class="moviesCloseList" *ngIf="!moviesTypeOpen">
     <div class="card mb-5">
       <div  style="text-align: right; background: #0264d6;" class="card-header">
-          <p style="text-align: center; font-size: large; font-weight: bold;">הקרנות סגורות</p><br>
-          <button (click)="changType(true)">להקרנות פתוחות</button>
+          <p style="text-align: center; font-size: large; font-weight: bold;">הקרנות סגורות</p><br/>
+          <button style="position:relative;left:-46%;"(click)="moviesTypeOpen=true">להקרנות פתוחות</button>
       </div>
 
   <table class="table table-bordered table-sm m-0">
@@ -72,11 +72,12 @@
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
           <td style="text-align: center;">{{item.MovieAddress}}</td>
           <td style="text-align: center;">{{item.MovieDate| date:'dd/MM/yyyy' }}</td> <!-- -->
-          <td  style="text-align: center;">בינתיים גלובלית</td>
+          <td style="text-align: center;">בינתיים גלובלית</td>
           
         </tr>
     </tbody>
 </table>
+</div>
 </div>
 <!-- </ng-template> -->
 
@@ -177,8 +178,6 @@
 
 
 
-
-        more
 
 
 
