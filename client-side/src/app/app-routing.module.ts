@@ -10,6 +10,7 @@ import { LoginUserComponent } from './login/login-user/login-user.component';
 import { BooksNewOrderComponent } from './books/books-new-order/books-new-order.component';
 import { NevigateComponent } from './nevigate/nevigate/nevigate.component';
 import { MenuComponent } from './design/menu/menu.component';
+import {ContactDetailsPopUpComponent}from './contacts/contact-details-pop-up/contact-details-pop-up.component'
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "login" },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "movies", component: MoviesListComponent},
   { path: "groups", component: GroupesListComponent },
   { path: "editBook/:id/:flag", component: BooksEditComponent },
+  { path: "contactDetails/:id", component: ContactDetailsPopUpComponent },
   { path: "**", component: NotFoundPageComponent}
 ];
 

@@ -37,7 +37,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of BooksOrdersList"  >
-                        <td style="text-align: center;"(click)="goToEdit(item.BooksOrdersId,true)">עריכה</td>
+                        
+                        <td style="text-align: center;"(click)="goToEdit(item.BooksOrdersId,true)">
+                            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"></button>                        </td>
                         <td style="text-align: center;">
                             <label class="custom-control custom-checkbox">
                                 <input type="checkbox" onclick="return false;"[(ngModel)]="item.Supplied" class="custom-control-input">

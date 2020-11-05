@@ -84,7 +84,7 @@ namespace FinalProject.BL
             {
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress("srk34389@gmail.com");
+                mail.From = new MailAddress("rut4275@gmail.com");
                 mail.To.Add(contactEmail);
                 mail.Subject = "מדריך / מדריכים למורה סוד ההבעה";
                 mail.Body = "שלום לך מורה יקרה!" + "\n" +
@@ -93,26 +93,26 @@ namespace FinalProject.BL
                     "מירי ואסתי";
                 System.Net.Mail.Attachment attachment;
 
-                if (arrBooks[0])
-                {
-                    attachment = new System.Net.Mail.Attachment(files[0]);
-                    mail.Attachments.Add(attachment);
-                }
-                if (arrBooks[1])
-                {
-                    attachment = new System.Net.Mail.Attachment(files[1]);
-                    mail.Attachments.Add(attachment);
-                }
-                if (arrBooks[2])
-                {
-                    attachment = new System.Net.Mail.Attachment(files[2]);
-                    mail.Attachments.Add(attachment);
-                    attachment = new System.Net.Mail.Attachment(files[3]);
-                    mail.Attachments.Add(attachment);
-                }
+                //if (arrBooks[0])
+                //{
+                //    attachment = new System.Net.Mail.Attachment(files[0]);
+                //    mail.Attachments.Add(attachment);
+                //}
+                //if (arrBooks[1])
+                //{
+                //    attachment = new System.Net.Mail.Attachment(files[1]);
+                //    mail.Attachments.Add(attachment);
+                //}
+                //if (arrBooks[2])
+                //{
+                //    attachment = new System.Net.Mail.Attachment(files[2]);
+                //    mail.Attachments.Add(attachment);
+                //    attachment = new System.Net.Mail.Attachment(files[3]);
+                //    mail.Attachments.Add(attachment);
+                //}
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("rut.programming@gmail.com", "dukeruczvnu,d");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("rut4275@gmail.com", "dukeruczvnu,d");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
