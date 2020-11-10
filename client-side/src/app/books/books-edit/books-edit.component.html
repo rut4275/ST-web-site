@@ -10,7 +10,7 @@
         <h4>פרטי הזמנה: {{_booksOrder.Customer.CustomerName}}</h4>
         <br>
             <div class="row">
-                <div class="col-md-6" *ngIf="flag1">
+                <div class="col-md-6" *ngIf="status==1">
                         <div style="text-align: right;" class="form-group">
                             <label style="font-weight: bold;">פרטי לקוח</label>
                             <br>
@@ -26,7 +26,7 @@
                             <input style="text-align: right;" type="text" id="CustomerAddress" name="txtName" class="form-control" formControlName="CustomerAddress" value="" />
                         </div>
                 </div>
-                <div class="col-md-6" *ngIf="flag1">
+                <div class="col-md-6" *ngIf="status==1">
                         <div style="text-align: right;" class="form-group">
                             <label for="CustomerCategorymerName">קטגוריה</label>
                             <input style="text-align: right;" type="text" id="CustomerCategorymerName" name="txtName" class="form-control" formControlName="CustomerCategorymerName" value="" />
@@ -35,12 +35,12 @@
                             <label for="Note">הערה</label>
                             <input style="text-align: right;" type="text" id="Note" name="txtName" class="form-control" formControlName="Note" value="" />
                         </div>
-                        <div style="text-align: left;" class="form-group">
+                        <div style=" position: absolute; top: 400px;left: 30px;text-align: right;" class="form-group">
                             <br><br>
-                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="next2()"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=2"></button>
                         </div>
                 </div>
-                <div class="col-md-6" *ngIf="flag2">
+                <div class="col-md-6" *ngIf="status==2">
                         <div style="text-align: right;" class="form-group">
                             <label style="font-weight: bold;">פרטי הזמנה</label>
                             <br>
@@ -52,7 +52,7 @@
                             <input style="text-align: right;" type="number" id="TotalPrice" name="txtName" class="form-control" formControlName="TotalPrice" value="" />
                         </div>
                 </div>
-                <div class="col-md-6" *ngIf="flag2">
+                <div class="col-md-6" *ngIf="status==2">
                         <div class="form-group">
                             <label class="custom-control custom-checkbox">בתשלום מראש
                             <input [(ngModel)]="_booksOrder.AcceptLiscence" type="checkbox" class="custom-control-input" formControlName="AcceptLiscence"/>
@@ -80,13 +80,13 @@
                             </fieldset>
                             
                         </div>
-                        <div style="text-align: left;" class="form-group">
+                        <div style=" position: absolute; top: 400px;left: 30px;text-align: right;" class="form-group">
                             <br><br>
-                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="back1()"></button>
-                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="next3()"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=1"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=3"></button>
                         </div>
                 </div>
-                <div class="col-md-6" *ngIf="flag3">
+                <div class="col-md-6" *ngIf="status==3">
                         <div style="text-align: right;" class="form-group">
                             <label style="font-weight: bold;">פרטי איש קשר</label>
                             <br>
@@ -102,7 +102,7 @@
                             <input style="text-align: right;" type="text" id="ContactEmail" name="txtName" class="form-control" formControlName="ContactEmail" value="" />
                         </div>
                 </div>
-                <div class="col-md-6" *ngIf="flag3">
+                <div class="col-md-6" *ngIf="status==3">
                         <div style="text-align: right;" class="form-group">
                             <label for="ContactPhone">מספר פלאפון</label>
                             <input style="text-align: right;" type="text" id="ContactPhone" name="txtName" class="form-control" formControlName="ContactPhone" value="" />
@@ -111,13 +111,13 @@
                             <label for="ContactAddress">כתובת</label>
                             <input style="text-align: right;" type="text" id="ContactAddress" name="txtName" class="form-control" formControlName="ContactAddress" value="" />
                         </div>
-                        <div style="text-align: left;" class="form-group">
+                        <div style=" position: absolute; top: 400px;left: 30px;text-align: right;" class="form-group">
                             <br><br>
-                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="back2()"></button>
-                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="next4()"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=2"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=4"></button>
                         </div>
                 </div>
-                <div class="col-md-6" *ngIf="flag4">
+                <div class="col-md-6" *ngIf="status==4">
                         <div style="text-align: right;" class="form-group">
                             <label style="font-weight: bold;">ספרים שהוזמנו:</label>
                         </div>
@@ -159,14 +159,34 @@
                                 </div>
                                 <!-- <button [disabled]="!BooksOrderForm.valid" (click)="saveNewBooksOrder()" *ngIf="flag">שמור</button> -->
                                 <!-- <button [disabled]="!BooksOrderForm.valid" (click)="updateBooksOrder()" *ngIf="!flag">עדכן</button> -->
-                            <div style="text-align: center;">
-                                <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="back3()"></button>
+                            <div style=" position: absolute; top: 450px; left: -400px ;text-align: right;">
+                                <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=3"></button>
                                 <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateBooksOrder()"></button>
                             </div>
                             <!-- </main> -->
                 </div>
             </div>
     </form>
+    <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 400px;text-align: right;"><!--  -->
+        <div class="stepwizard-row">
+            <div class="stepwizard-step"style=" width: 25%;">
+                <button pButton pRipple type="button" icon="pi pi-briefcase" class="p-button-rounded p-button-danger"(click)="status=1"></button>
+                <p>פרטי לקוח</p>
+            </div>
+            <div class="stepwizard-step"style=" width: 25%;">
+                <button pButton pRipple type="button" icon="pi pi-info-circle" class="p-button-rounded p-button-help"(click)="status=2"></button>
+                <p>פרטי הזמנה</p>
+            </div>
+            <div class="stepwizard-step"style=" width: 25%;">
+                <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-warning" (click)="status=3"></button>
+                <p>איש קשר</p>
+            </div> 
+            <div class="stepwizard-step"style=" width: 25%;">
+                <button pButton pRipple type="button" icon="pi pi-list" class="p-button-rounded p-button-success"(click)="status=4"></button>
+                <p>רשימת ספרים</p>
+            </div> 
+        </div>
+    </div>
 <!-- </p-scrollPanel> -->
 </div>
 </body>

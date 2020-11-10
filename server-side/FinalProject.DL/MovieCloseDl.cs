@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,19 @@ namespace FinalProject.DL
                .ToListAsync();
             return movies;
            
+        }
+
+        public async Task<MovieClose> getMovieCloseById(int id)
+        {
+            var movies = await context.MovieClose
+               .Where(e => e.MovieId == id)
+               .Include(e => e.Contact)
+               .Include(e => e.Film)
+               .Include(e => e.InCharge)
+               .Include(e => e.Payment)
+               .Include(e => e.Order)
+               .FirstOrDefaultAsync();
+            return movies;
         }
     }
 }

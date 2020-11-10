@@ -13,7 +13,7 @@ export class MoviesListComponent implements OnInit {
 
   public moviesOpenList:classMovieOpen[];
   public moviesCloseList:classMovieClose[];
-  public moviesTypeOpen:boolean;
+  public moviesTypeOpen:boolean=true;
 
 
   changType(isOpen:boolean){
@@ -23,12 +23,23 @@ export class MoviesListComponent implements OnInit {
   newMovie(){
     
   }
+  delete(idMovie:number){
+
+  }
+  goToEdit(idMovie:number,flag:boolean){
+    if(this.moviesTypeOpen){
+      this._router.navigate(['/openMovies',idMovie, flag]);
+    }else{
+      this._router.navigate(['/closeMovies',idMovie, flag]);
+
+    }
+  }
   constructor(private _moviesService :moviesService, private _router: Router) {
     
     //טעינת הקרנות סגורות 
     _moviesService.getAllMoviesCloesFromServer().subscribe(data => {
       this.moviesCloseList = data;
-      this.moviesTypeOpen=false;
+      //this.moviesTypeOpen=false;
       console.log(this.moviesCloseList);
     },err =>{
       alert("שגיאה בטעינת טבלת הקרנות סגורות");

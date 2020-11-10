@@ -24,6 +24,9 @@
   <table class="table table-bordered table-sm m-0" >
     <thead class="">
         <tr>
+          
+            <th style="text-align: center;">מחיקה</th>
+            <th style="text-align: center;">עריכה</th>
             <th style="text-align: center;">שם <br/> איש קשר <br/> בתרבות</th>
             <th style="text-align: center;">שם <br/> איש קשר<br/>  מטעמינו</th>
             <th style="text-align: center;">שם סרט</th>
@@ -34,6 +37,10 @@
     </thead>
     <tbody>
         <tr  *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
+          <td style="text-align: center;"(click)="delete(item.MovieId)">
+            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button></td>
+        <td style="text-align: center;"(click)="goToEdit(item.MovieId,true)">
+            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"></button></td>
           <td style="text-align: center;">{{item.ContactCulture.ContactFirstName}} {{item.ContactCulture.ContactLastName}}</td>
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
@@ -44,6 +51,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 </div>
 
 <!-- <ng-template #showCloseMoviesList> -->
@@ -57,16 +65,24 @@
   <table class="table table-bordered table-sm m-0">
     <thead class="">
         <tr>
-            <th style="text-align: center;">איש קשר בזמן האירוע</th>
+          
+            <th style="text-align: center;">מחיקה</th>
+            <th style="text-align: center;">עריכה</th>
+            <th style="text-align: center;">איש קשר <br/>בזמן האירוע</th>
             <th style="text-align: center;">נאמנת</th>
             <th style="text-align: center;">שם הסרט</th>
-            <th style="text-align: center;">כתובת ההקרנה</th>
-            <th style="text-align: center;">תאריך ההקרנה</th>
+            <th style="text-align: center;">כתובת<br/> ההקרנה</th>
+            <th style="text-align: center;">תאריך<br/> ההקרנה</th>
             <th style="text-align: center;">גלובלית/לראש</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of moviesCloseList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
+          <td style="text-align: center;"(click)="delete(item.MovieId)">
+            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+          </td>
+        <td style="text-align: center;"(click)="goToEdit(item.MovieId,true)">
+            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"></button></td>
           <td style="text-align: center;">{{item.Contact.ContactFirstName}} {{item.Contact.ContactLastName}}</td>
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
@@ -78,7 +94,30 @@
     </tbody>
 </table>
 </div>
-</div>
+<!-- </div>
+<div class="card">
+  <h5>Single Column</h5>
+  <p-table [value]="products1">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
+              <th pSortableColumn="quantity">Quantity <p-sortIcon field="quantity"></p-sortIcon></th>
+              <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+          <tr>
+              <td>{{product.code}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.category}}</td>
+              <td>{{product.quantity}}</td>
+              <td>{{product.price | currency: 'USD'}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div> -->
 <!-- </ng-template> -->
 
 <div>{{moviesTypeOpen}}</div>

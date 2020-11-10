@@ -15,6 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DesignModule } from './design/design.module'
 import { GroupesModule } from './groupes/groupes.module';
 import { moviesService } from './movies.service';
+import { filmsService } from './films.service';
+import { moviesPeriodService } from './moviesPeriod.service';
+import { moviesPaymentService } from './moviesPayment.service';
+import { contactsService } from './contact.service';
 @NgModule({
   declarations: [
      AppComponent,
@@ -35,7 +39,7 @@ import { moviesService } from './movies.service';
     BrowserAnimationsModule,
     DesignModule
   ],
-  providers: [LoginService, booksService, moviesService],
+  providers: [LoginService, booksService, moviesService,filmsService,moviesPeriodService, moviesPaymentService,contactsService],
   bootstrap: [AppComponent]
   
 })

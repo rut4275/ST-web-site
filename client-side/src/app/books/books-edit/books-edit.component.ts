@@ -21,6 +21,7 @@ export class BooksEditComponent implements OnInit {
   public _bookCustomer: classBooksCustomers;
   public items: MenuItem[];
   public activeIndex: number = 1;
+  public status:number=1;
 
   @Input()
   flag: boolean;
@@ -91,34 +92,34 @@ updateBooksOrder() {
     alert("שגיאה בעדכון הפרטים, ההזמנה לא עודכנה")
   };
 }
-flag1 = true;
-flag2 = false;
-flag3 = false;
-flag4 = false;
-next2(){
-  this.flag1 = false;
-  this.flag2 = true;
-}
-next3(){
-  this.flag2 = false;
-  this.flag3=true;
-}
-next4(){
-  this.flag3 = false;
-  this.flag4=true;
-}
-back1(){
-  this.flag2 = false;
-  this.flag1 = true;
-}
-back2(){
-  this.flag3 = false;
-  this.flag2 = true;
-}
-back3(){
-  this.flag4 = false;
-  this.flag3 = true;
-}
+// flag1 = true;
+// flag2 = false;
+// flag3 = false;
+// flag4 = false;
+// next2(){
+//   this.flag1 = false;
+//   this.flag2 = true;
+// }
+// next3(){
+//   this.flag2 = false;
+//   this.flag3=true;
+// }
+// next4(){
+//   this.flag3 = false;
+//   this.flag4=true;
+// }
+// back1(){
+//   this.flag2 = false;
+//   this.flag1 = true;
+// }
+// back2(){
+//   this.flag3 = false;
+//   this.flag2 = true;
+// }
+// back3(){
+//   this.flag4 = false;
+//   this.flag3 = true;
+// }
   constructor(private _acr:ActivatedRoute, private service: booksService, private _router: Router) { }
   currentDate;
   ngOnInit(): void {

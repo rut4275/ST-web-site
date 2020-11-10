@@ -10,9 +10,13 @@ export class moviesService{
     constructor(private _http: HttpClient) {
         
     }
+    getCloseMovieFromServer(id:number): Observable<classMovieClose> {
+        return this._http.get<classMovieClose>("/api/moviesClose/"+id);
+    }
 
     //בקשת רשימת הקרנות סגורות   
     getAllMoviesCloesFromServer(): Observable<classMovieClose[]> {
+        debugger;
         return this._http.get<classMovieClose[]>("/api/moviesClose");
     }
     

@@ -22,10 +22,10 @@ export class classMovieClose{
     public PeriodId:number;
     public Contact:classContacts;
     public Film:classFilms;
-    public  InCharge:classContacts;
+    public InCharge:classContacts;
     public Order:classContacts;
-    public  Payment:classMoviePayment;
-    public  Period:classMoviePeriod ;
+    public Payment:classMoviePayment;
+    public Period:classMoviePeriod ;
 }
 
 

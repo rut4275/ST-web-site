@@ -15,6 +15,12 @@ namespace FinalProject.DL
         {
             context = _context;
         }
+
+        public async Task<List<Contacts>> getAll()
+        {
+            return await context.Contacts.ToListAsync();
+        }
+
         public async Task<Contacts> getById(int id)
         {
             return await context.Contacts.Where(c=>c.ContactId==id).FirstOrDefaultAsync();

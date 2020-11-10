@@ -41,6 +41,14 @@ namespace FinalProject
             services.AddScoped(typeof(IMovieCloseDl), typeof(MovieCloseDl));
             services.AddScoped(typeof(IMovieOpenBl), typeof(MovieOpenBl));
             services.AddScoped(typeof(IMovieOpenDl), typeof(MovieOpenDl));
+            services.AddScoped(typeof(IMoviePeriodBl), typeof(MoviePeriodBl));
+            services.AddScoped(typeof(IMoviePeriodDl), typeof(MoviePeriodDl));
+            services.AddScoped(typeof(IMoviePaymentBl), typeof(MoviePaymentBl));
+            services.AddScoped(typeof(IMoviePaymentDl), typeof(MoviePaymentDl));
+            services.AddScoped(typeof(IFilmsBl), typeof(FilmsBl));
+            services.AddScoped(typeof(IFilmsDl), typeof(FilmsDl));
+            services.AddScoped(typeof(IContactsBl), typeof(ContactsBl));
+            services.AddScoped(typeof(IContactsDl), typeof(ContactsDl));
 
             services.AddDbContext<FinalProjectContext>(options => options.UseSqlServer
               (Configuration.GetConnectionString("MySiteDB")));

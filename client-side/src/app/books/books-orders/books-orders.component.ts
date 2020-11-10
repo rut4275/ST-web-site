@@ -111,6 +111,9 @@ export class BooksOrdersComponent implements OnInit {
     this.flag1 = this.flag2;
     this.flag2 = y;
   }
+  delete(idOrder:number){
+
+  }
   ngOnInit(): void {
     
   }

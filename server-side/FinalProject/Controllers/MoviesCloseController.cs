@@ -25,11 +25,18 @@ namespace FinalProject.Controllers
             return await moviesClose.getAll();
         }
 
+        //// GET: api/MoviesClose
+        //[HttpGet]
+        //public async Task<MovieClose> Get([FromQuery] int id)
+        //{
+        //    return await moviesClose.getMovieCloseById(id);
+        //}
+
         // GET: api/MoviesClose/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public async Task<MovieClose> Get(int id)
         {
-            return "value";
+            return await moviesClose.getMovieCloseById(id);
         }
 
         // POST: api/MoviesClose

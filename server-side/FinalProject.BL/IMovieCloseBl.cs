@@ -7,5 +7,6 @@ namespace FinalProject.BL
     public interface IMovieCloseBl
     {
         Task<List<MovieClose>> getAll();
+        Task<MovieClose> getMovieCloseById(int id);
     }
 }

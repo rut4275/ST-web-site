@@ -1,1 +1,225 @@
-<p>הקרנה סגורה חדשה</p>
+<body style="margin-left: -20%; margin-top: -3%;">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <div class="container contact-form">
+        <!-- <p-scrollPanel style="width: 80%; height: 80%; margin-bottom: 20%;"> -->
+        <form class="form" [formGroup]="closeMovieForm" *ngIf="_closeMovie" method="post" style=" position: relative; top: 100px;text-align: right;">
+            <h4> פרטי הקרנה סגורה:{{_closeMovie.Film.FilmName}} , {{_closeMovie.MovieAddress}}</h4>
+            <br>
+                <div class="row">
+                    <div class="col-md-6" *ngIf="status==1">
+                            <div style="text-align: right;" class="form-group">
+                                <label style="font-weight: bold;">פרטי הקרנה</label>
+                                <br>
+                                <label for="Film">שם הסרט</label>
+                                 <!-- <p-dropdown [options]="films" formControlName="Film" ></p-dropdown>  -->
+                                <!-- בחירת סרט https://www.primefaces.org/primeng/showcase/#/dropdown -->
+                                <!-- <p-dropdown [options]="films" formControlName="_closeMovie.Film" optionLabel="FilmName" [filter]="true" [showClear]="true" placeholder="בחר סרט מהרשימה">
+                                    <ng-template pTemplate="selectedItem">
+                                        <div class="country-item country-item-value"  *ngIf="selectedCountry">
+                                            <div>{{selectedCountry.name}}</div>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template let-country pTemplate="item">
+                                        <div class="country-item">
+                                            <div>{{country.value.name}}</div>
+                                        </div>
+                                    </ng-template>
+                                </p-dropdown> -->
+                                <!--  -->
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox">גלובלית
+                                <input [(ngModel)]="_closeMovie.GlobalMovie" type="checkbox" class="custom-control-input" formControlName="GlobalMovie"/>
+                                <span class="custom-control-indicator"></span>
+                                </label>
+                            </div>
+                            <div style="text-align: right;" class="form-group" *ngIf="!_closeMovie.GlobalMovie">
+                                <label for="PricePerHead">תשלום לראש</label>
+                                <input style="text-align: left;" type="number" id="PricePerHead" name="txtName" class="form-control" formControlName="PricePerHead" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="TotalParticipants">מספר המשתתפים</label>
+                                <input style="text-align: left;" type="number" id="TotalParticipants" name="txtName" class="form-control" formControlName="TotalParticipants" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="Order">המזמין</label>
+                                <!-- <input style="text-align: right;" type="text" id="CustomerName" name="txtName" class="form-control" formControlName="CustomerName" value="" /> -->
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="Contact">איש קשר</label>
+                                <!-- <input style="text-align: right;" type="text" id="CustomerAddress" name="txtName" class="form-control" formControlName="CustomerAddress" value="" /> -->
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="InCharge">נאמנת</label>
+                                <!-- <input style="text-align: right;" type="text" id="CustomerAddress" name="txtName" class="form-control" formControlName="CustomerAddress" value="" /> -->
+                            </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="status==1">
+                            <div style="text-align: right;" class="form-group">
+                                <label for="Period">עונה</label>
+                                <!-- <input style="text-align: right;" type="text" id="Period" name="txtName" class="form-control" formControlName="CustomerCategorymerName" value="" /> -->
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="Payment">אופן תשלום</label>
+                                <!-- <input style="text-align: right;" type="text" id="Note" name="txtName" class="form-control" formControlName="Note" value="" /> -->
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="InChargeAmount">התשלום לנאמנת</label>
+                                <input style="text-align: left;" type="number" id="InChargeAmount" name="txtName" class="form-control" formControlName="InChargeAmount" value="" />
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox">שולם לנאמנת
+                                <input [(ngModel)]="_closeMovie.Paid" type="checkbox" class="custom-control-input" formControlName="Paid"/>
+                                <span class="custom-control-indicator"></span>
+                                </label>
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="TotalAmount">סכום סופי</label>
+                                <input style="text-align: left;" type="number" id="TotalAmount" name="txtName" class="form-control" formControlName="TotalAmount" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="MovieDate">תאריך ההקרנה</label>
+                                <input style="text-align: right;" type="date" id="MovieDate" name="txtName" class="form-control" formControlName="MovieDate" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="MovieAddress">כתובת ההקרנה</label>
+                                <input style="text-align: right;" type="text" id="MovieAddress" name="txtName" class="form-control" formControlName="MovieAddress" value="" />
+                            </div>
+                            <div style="text-align: left;" class="form-group" style=" position: absolute; top: 420px;left: 40px;text-align: right;">
+                                <br><br>
+                                <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=2"></button>
+                            </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="status==2">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי איש קשר</label>
+                            <br>
+                            <label for="ContactFirstName">שם פרטי</label>
+                            <input style="text-align: right;" type="text" id="ContactFirstName" name="txtName" class="form-control" formControlName="ContactFirstName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactLastName">שם משפחה</label>
+                            <input style="text-align: right;" type="text" id="ContactLastName" name="txtName" class="form-control" formControlName="ContactLastName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactEmail">אמייל</label>
+                            <input style="text-align: right;" type="text" id="ContactEmail" name="txtName" class="form-control" formControlName="ContactEmail" value="" />
+                        </div>
+                           
+                    </div>
+                    <div class="col-md-6" *ngIf="status==2">
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactPhone">מספר פלאפון</label>
+                            <input style="text-align: right;" type="text" id="ContactPhone" name="txtName" class="form-control" formControlName="ContactPhone" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactAddress">כתובת</label>
+                            <input style="text-align: right;" type="text" id="ContactAddress" name="txtName" class="form-control" formControlName="ContactAddress" value="" />
+                        </div>
+                            <div style="text-align: left;" class="form-group" style=" position: absolute; top: 420px;left: 40px;text-align: right;">
+                                <br><br>
+                                
+                                <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=1"></button>
+                                <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=3"></button>
+                            </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="status==3">
+                            <div style="text-align: right;" class="form-group">
+                                <label style="font-weight: bold;">פרטי נאמנת</label>
+                                <br>
+                                <label for="InChargeFirstName">שם פרטי</label>
+                                <input style="text-align: right;" type="text" id="InChargeFirstName" name="txtName" class="form-control" formControlName="InChargeFirstName" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="InChargeLastName">שם משפחה</label>
+                                <input style="text-align: right;" type="text" id="InChargeLastName" name="txtName" class="form-control" formControlName="InChargeLastName" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="InChargeEmail">אמייל</label>
+                                <input style="text-align: right;" type="text" id="InChargeEmail" name="txtName" class="form-control" formControlName="InChargeEmail" value="" />
+                            </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="status==3">
+                            <div style="text-align: right;" class="form-group">
+                                <label for="InChargePhone">מספר פלאפון</label>
+                                <input style="text-align: right;" type="text" id="InChargePhone" name="txtName" class="form-control" formControlName="InChargePhone" value="" />
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="InChargeAddress">כתובת</label>
+                                <input style="text-align: right;" type="text" id="InChargeAddress" name="txtName" class="form-control" formControlName="InChargeAddress" value="" />
+                            </div>
+                            <div style="text-align: left;" class="form-group" style=" position: absolute; top: 420px;left: 40px;text-align: right;">
+                                <br><br>
+                                
+                                <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=2"></button>
+                                <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=4"></button>
+                            </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="status==4">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי מזמין</label>
+                            <br>
+                            <label for="OrderFirstName">שם פרטי</label>
+                            <input style="text-align: right;" type="text" id="OrderFirstName" name="txtName" class="form-control" formControlName="OrderFirstName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="OrderLastName">שם משפחה</label>
+                            <input style="text-align: right;" type="text" id="OrderLastName" name="txtName" class="form-control" formControlName="OrderLastName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="OrderEmail">אמייל</label>
+                            <input style="text-align: right;" type="text" id="OrderEmail" name="txtName" class="form-control" formControlName="OrderEmail" value="" />
+                        </div>
+                                    <!-- <button [disabled]="!BooksOrderForm.valid" (click)="saveNewBooksOrder()" *ngIf="flag">שמור</button> -->
+                                    <!-- <button [disabled]="!BooksOrderForm.valid" (click)="updateBooksOrder()" *ngIf="!flag">עדכן</button> -->
+                                
+                                <!-- </main> -->
+                    </div>
+                    <div class="col-md-6" *ngIf="status==4">
+                        <div style="text-align: right;" class="form-group">
+                            <label for="OrderPhone">מספר פלאפון</label>
+                            <input style="text-align: right;" type="text" id="OrderPhone" name="txtName" class="form-control" formControlName="OrderPhone" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="OrderAddress">כתובת</label>
+                            <input style="text-align: right;" type="text" id="OrderAddress" name="txtName" class="form-control" formControlName="OrderAddress" value="" />
+                        </div>
+                        <div style="text-align: center;" style=" position: absolute; top: 450px;left: 40px;text-align: right;">
+                             
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=3"></button>
+                           <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateCloseMovie()"></button>
+                        </div>
+                </div>
+                </div>
+        </form>
+        <!--  ניווט -->
+        <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 400px;text-align: right;"><!--  -->
+            <div class="stepwizard-row">
+                <div class="stepwizard-step"style=" width: 25%;">
+                    <button pButton pRipple type="button" icon="pi pi-video" class="p-button-rounded p-button-danger"(click)="status=1"></button>
+                    <p>פרטי הקרנה</p>
+                </div>
+                <div class="stepwizard-step"style=" width: 25%;">
+                    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-help"(click)="status=2"></button>
+                    <p>איש קשר</p>
+                </div>
+                <div class="stepwizard-step"style=" width: 25%;">
+                    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-warning" (click)="status=3"></button>
+                    <p>נאמנת</p>
+                </div> 
+                <div class="stepwizard-step"style=" width: 25%;">
+                    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-success"(click)="status=4"></button>
+                    <p>מזמין</p>
+                </div> 
+            </div>
+        </div>
+       
+    <!-- </p-scrollPanel> -->
+    </div>
+    </body>
+    
+    

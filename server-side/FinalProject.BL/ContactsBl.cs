@@ -14,6 +14,12 @@ namespace FinalProject.BL
         {
             ContactsDl = _ContactsDl;
         }
+
+        public async Task<List<Contacts>> getAll()
+        {
+            return await ContactsDl.getAll();
+        }
+
         public async Task<Contacts> getById(int id)
         {
             return await ContactsDl.getById(id);

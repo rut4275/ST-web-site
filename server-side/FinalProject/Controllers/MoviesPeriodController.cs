@@ -12,41 +12,40 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactsController : ControllerBase
+    public class MoviesPeriodController : ControllerBase
     {
-        public IContactsBl ContactsBl;
-
-        public ContactsController(IContactsBl _ContactsBl)
+        IMoviePeriodBl moviePeriodBl;
+        public MoviesPeriodController(IMoviePeriodBl _moviePeriodBl)
         {
-            ContactsBl = _ContactsBl;
+            moviePeriodBl = _moviePeriodBl;
         }
-        // GET: api/<ContactsController>
+        // GET: api/<MoviesPeriodController>
         [HttpGet]
-        public async Task<List<Contacts>> Get()
+        public async Task<List<MoviePeriod>> Get()
         {
-            return await ContactsBl.getAll();
+            return await moviePeriodBl.getAll();
         }
 
-        // GET api/<ContactsController>/5
+        // GET api/<MoviesPeriodController>/5
         [HttpGet("{id}")]
-        public Task<Contacts> Get(int id)
+        public string Get(int id)
         {
-            return ContactsBl.getById(id);
+            return "value";
         }
 
-        // POST api/<ContactsController>
+        // POST api/<MoviesPeriodController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<ContactsController>/5
+        // PUT api/<MoviesPeriodController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<ContactsController>/5
+        // DELETE api/<MoviesPeriodController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

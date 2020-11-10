@@ -1,20 +1,16 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { classContacts } from './Models/classContacts';
+import { classFilms } from './Models/classFilms';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class contactsService{
+export class filmsService{
 
     constructor(private _http: HttpClient) {
     }
-    getAllContacts() {
-        debugger;
-        return this._http.get<classContacts[]>("/api/contacts");
-    }
     
-    getContactById(id:number): Observable<classContacts> {
-        return this._http.get<classContacts>("/api/contacts/"+id);
+    getAllFilms(): Observable<classFilms[]> {
+        return this._http.get<classFilms[]>("/api/films");
     }
 
     // putOrderInServer(o: classBooksOrders): Observable<classBooksOrders> {
