@@ -15,21 +15,7 @@
                                 <label style="font-weight: bold;">פרטי הקרנה</label>
                                 <br>
                                 <label for="Film">שם הסרט</label>
-                                 <!-- <p-dropdown [options]="films" formControlName="Film" ></p-dropdown>  -->
-                                <!-- בחירת סרט https://www.primefaces.org/primeng/showcase/#/dropdown -->
-                                <!-- <p-dropdown [options]="films" formControlName="_closeMovie.Film" optionLabel="FilmName" [filter]="true" [showClear]="true" placeholder="בחר סרט מהרשימה">
-                                    <ng-template pTemplate="selectedItem">
-                                        <div class="country-item country-item-value"  *ngIf="selectedCountry">
-                                            <div>{{selectedCountry.name}}</div>
-                                        </div>
-                                    </ng-template>
-                                    <ng-template let-country pTemplate="item">
-                                        <div class="country-item">
-                                            <div>{{country.value.name}}</div>
-                                        </div>
-                                    </ng-template>
-                                </p-dropdown> -->
-                                <!--  -->
+                                <p-dropdown id="Film" [options]="films" optionLabel="FilmName" formControlName="Film" [filter]="true" ></p-dropdown>
                             </div>
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox">גלובלית
@@ -47,25 +33,29 @@
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="Order">המזמין</label>
-                                <!-- <input style="text-align: right;" type="text" id="CustomerName" name="txtName" class="form-control" formControlName="CustomerName" value="" /> -->
+                                <p-dropdown id="Order" [options]="contacts"formControlName="Order" [filter]="true" (onChange)="updateOrder()"></p-dropdown>
+
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="Contact">איש קשר</label>
-                                <!-- <input style="text-align: right;" type="text" id="CustomerAddress" name="txtName" class="form-control" formControlName="CustomerAddress" value="" /> -->
+                                <p-dropdown id="Contact" [options]="contacts"  formControlName="Contact" [filter]="true" (onChange)="updateContact()"></p-dropdown>
+                             
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="InCharge">נאמנת</label>
-                                <!-- <input style="text-align: right;" type="text" id="CustomerAddress" name="txtName" class="form-control" formControlName="CustomerAddress" value="" /> -->
+                                <p-dropdown id="InCharge" [options]="contacts"formControlName="InCharge" [filter]="true" (onChange)="updateInCharge()"></p-dropdown>
+                                
                             </div>
                     </div>
                     <div class="col-md-6" *ngIf="status==1">
                             <div style="text-align: right;" class="form-group">
                                 <label for="Period">עונה</label>
-                                <!-- <input style="text-align: right;" type="text" id="Period" name="txtName" class="form-control" formControlName="CustomerCategorymerName" value="" /> -->
+                                <p-dropdown id="Period" [options]="periods" formControlName="PeriodId" [filter]="true" > </p-dropdown>
+                              
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="Payment">אופן תשלום</label>
-                                <!-- <input style="text-align: right;" type="text" id="Note" name="txtName" class="form-control" formControlName="Note" value="" /> -->
+                                <p-dropdown id="Payment" [options]="payments" optionLabel="PaymentType" formControlName="Payment" [filter]="true" ></p-dropdown>
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="InChargeAmount">התשלום לנאמנת</label>
@@ -197,23 +187,23 @@
                 </div>
         </form>
         <!--  ניווט -->
-        <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 400px;text-align: right;"><!--  -->
+        <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 600px;text-align: right;"><!--  -->
             <div class="stepwizard-row">
                 <div class="stepwizard-step"style=" width: 25%;">
                     <button pButton pRipple type="button" icon="pi pi-video" class="p-button-rounded p-button-danger"(click)="status=1"></button>
-                    <p>פרטי הקרנה</p>
+                    <p>1.פרטי הקרנה</p>
                 </div>
                 <div class="stepwizard-step"style=" width: 25%;">
                     <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-help"(click)="status=2"></button>
-                    <p>איש קשר</p>
+                    <p>2.איש קשר</p>
                 </div>
                 <div class="stepwizard-step"style=" width: 25%;">
                     <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-warning" (click)="status=3"></button>
-                    <p>נאמנת</p>
+                    <p>3.נאמנת</p>
                 </div> 
                 <div class="stepwizard-step"style=" width: 25%;">
                     <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-success"(click)="status=4"></button>
-                    <p>מזמין</p>
+                    <p>4.מזמין</p>
                 </div> 
             </div>
         </div>

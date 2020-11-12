@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { classMovieClose } from 'src/app/Models/classMovieClose';
 import { classMovieOpen } from 'src/app/Models/classMovieOpen';
 import { moviesService } from 'src/app/movies.service';
@@ -16,9 +16,9 @@ export class MoviesListComponent implements OnInit {
   public moviesTypeOpen:boolean=true;
 
 
-  changType(isOpen:boolean){
-    this.moviesTypeOpen=isOpen;
-  }
+  // changType(isOpen:boolean){
+  //   this.moviesTypeOpen=isOpen;
+  // }
 
   newMovie(){
     
@@ -34,9 +34,10 @@ export class MoviesListComponent implements OnInit {
 
     }
   }
-  constructor(private _moviesService :moviesService, private _router: Router) {
-    
-    //טעינת הקרנות סגורות 
+  constructor(private _acr:ActivatedRoute,private _moviesService :moviesService, private _router: Router) {
+
+    this._acr.paramMap.subscribe(params => {
+      //טעינת הקרנות סגורות 
     _moviesService.getAllMoviesCloesFromServer().subscribe(data => {
       this.moviesCloseList = data;
       //this.moviesTypeOpen=false;
@@ -50,7 +51,7 @@ export class MoviesListComponent implements OnInit {
 
     _moviesService.getAllMoviesOpenFromServer().subscribe(data => {
       this.moviesOpenList = data;
-      this.moviesTypeOpen=true;
+      //this.moviesTypeOpen=true;
       console.log(this.moviesOpenList);
       debugger
     },err =>{
@@ -58,11 +59,15 @@ export class MoviesListComponent implements OnInit {
     });
 
 
+      this.moviesTypeOpen = Boolean(+params.get("isOpen"))
+    
+    })
+
    }
 
   ngOnInit(): void {
-  }
 
+  }
 }
 
 

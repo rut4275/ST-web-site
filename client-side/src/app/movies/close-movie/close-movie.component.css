@@ -53,3 +53,6 @@ body {
     direction: rtl;
     text-align:right
 }
+:host ::ng-deep .p-dropdown {
+    width: 14rem;
+}

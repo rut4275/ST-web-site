@@ -13,16 +13,16 @@ namespace FinalProject.Controllers
     [ApiController]
     public class MoviesCloseController : ControllerBase
     {
-        public IMovieCloseBl moviesClose;
+        public IMovieCloseBl moviesCloseBl;
         public MoviesCloseController(IMovieCloseBl _moviesClose)
         {
-            moviesClose = _moviesClose;
+            moviesCloseBl = _moviesClose;
         }
         // GET: api/MoviesClose
         [HttpGet]
         public async Task<List<MovieClose>> Get()
         {
-            return await moviesClose.getAll();
+            return await moviesCloseBl.getAll();
         }
 
         //// GET: api/MoviesClose
@@ -36,7 +36,7 @@ namespace FinalProject.Controllers
         [HttpGet("{id}", Name = "Get")]
         public async Task<MovieClose> Get(int id)
         {
-            return await moviesClose.getMovieCloseById(id);
+            return await moviesCloseBl.getMovieCloseById(id);
         }
 
         // POST: api/MoviesClose
@@ -46,9 +46,10 @@ namespace FinalProject.Controllers
         }
 
         // PUT: api/MoviesClose/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+       // [HttpPut("{id}")]
+        public async Task Put([FromBody] MovieClose movieClose)
         {
+            await moviesCloseBl.putMovie(movieClose);
         }
 
         // DELETE: api/ApiWithActions/5

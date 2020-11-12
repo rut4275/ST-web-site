@@ -10,6 +10,8 @@ import {ButtonModule} from 'primeng/button';
 import {RippleModule} from 'primeng/ripple';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {ToolbarModule} from 'primeng/toolbar';
+import {DropdownModule} from 'primeng/dropdown'; 
+
 
 @NgModule({
   declarations: [MoviesListComponent, CloseMovieComponent, OpenMovieComponent, MoviesStatisticsComponent],
@@ -21,7 +23,8 @@ import {ToolbarModule} from 'primeng/toolbar';
     ButtonModule,
     RippleModule,
     ScrollPanelModule,
-    ToolbarModule
+    ToolbarModule,
+    DropdownModule
   ],
   exports: [MoviesListComponent, CloseMovieComponent, OpenMovieComponent, MoviesStatisticsComponent]
 })

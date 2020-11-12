@@ -9,7 +9,7 @@ export class contactsService{
     constructor(private _http: HttpClient) {
     }
     getAllContacts() {
-        debugger;
+        // debugger;
         return this._http.get<classContacts[]>("/api/contacts");
     }
     

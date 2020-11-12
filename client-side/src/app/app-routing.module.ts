@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: "books", component: BooksOrdersComponent },
   { path: "booksNewOrder", component: BooksNewOrderComponent },
   { path: "movies", component: MoviesListComponent},
+  { path: "movies/:isOpen", component: MoviesListComponent},
   { path: "closeMovies/:id/:flag", component: CloseMovieComponent},
   { path: "openMovies/:id/:flag", component: OpenMovieComponent},
   { path: "groups", component: GroupesListComponent },

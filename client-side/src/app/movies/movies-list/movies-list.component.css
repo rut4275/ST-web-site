@@ -2,11 +2,22 @@ html {
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
-/* 
-.table {
-    border: none;
+button{
+  margin: 5px;
 }
+.moviesList{
+  width: 70%;
+  position: relative;
+  left: 5rem;
+  top: 5rem;
 
+}
+ 
+table {
+    border: none;
+    width: 100%;
+}
+/*
 .table-definition thead th:first-child {
     pointer-events: none;
     background: white;

@@ -19,8 +19,6 @@ export class BooksEditComponent implements OnInit {
 
   public _booksOrder: classBooksOrders;
   public _bookCustomer: classBooksCustomers;
-  public items: MenuItem[];
-  public activeIndex: number = 1;
   public status:number=1;
 
   @Input()
@@ -130,6 +128,7 @@ updateBooksOrder() {
         if (bookOrderId != 0) {
           let filterData = data.filter(x => x.BooksOrdersId == bookOrderId);
           this._booksOrder = filterData[0];
+          debugger
           this.BooksOrderForm = new FormGroup({
             CustomerId: new FormControl(this._booksOrder.CustomerId),
             OrderDate: new FormControl(new Date(this._booksOrder.OrderDate).toISOString().substring(0, 10)),

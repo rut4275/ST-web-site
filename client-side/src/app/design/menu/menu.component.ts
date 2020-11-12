@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   public userName: string;
-  constructor(private _router: Router) { }
+  constructor(private _router: Router) {
+    // this._router.navigate(['/books']);
+   }
 
   ngOnInit(): void {
     this.userName = JSON.parse(sessionStorage.getItem("userName"));
+    
   }
   route(route){
     if(route == 'login'){

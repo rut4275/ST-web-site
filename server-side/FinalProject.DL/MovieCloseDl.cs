@@ -42,5 +42,37 @@ namespace FinalProject.DL
                .FirstOrDefaultAsync();
             return movies;
         }
+
+        public async Task putMovie(MovieClose movieClose)
+        {
+            await context.MovieClose.ForEachAsync(m =>
+            {
+                if (m.MovieId == movieClose.MovieId)
+                {
+                    m.Contact = movieClose.Contact;
+                    m.ContactId = movieClose.ContactId;
+                    //m.Film = movieClose.Film;
+                    m.FilmId = movieClose.FilmId;
+                    m.GlobalMovie = movieClose.GlobalMovie;
+                    m.InCharge = movieClose.InCharge;
+                    m.InChargeAmount = movieClose.InChargeAmount;
+                    m.InChargeId = movieClose.InChargeId;
+                    m.MovieAddress = movieClose.MovieAddress;
+                    m.MovieDate = movieClose.MovieDate;
+                    m.Order = movieClose.Order;
+                    m.OrderId = movieClose.OrderId;
+                    m.Paid = movieClose.Paid;
+                    //m.Payment = movieClose.Payment;
+                    m.PaymentId = movieClose.PaymentId;
+                    m.PeriodId = movieClose.PeriodId;
+                    m.PricePerHead = movieClose.PricePerHead;
+                    m.TotalAmount = movieClose.TotalAmount;
+                    m.TotalParticipants = movieClose.TotalParticipants;
+                    m.WithReceipt = movieClose.WithReceipt;
+                };
+
+            });
+            await context.SaveChangesAsync();
+        }
     }
 }

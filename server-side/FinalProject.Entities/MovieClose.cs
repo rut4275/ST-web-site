@@ -28,7 +28,6 @@ namespace FinalProject.Models‏
         public virtual Contacts InCharge { get; set; }
         public virtual Contacts Order { get; set; }
         public virtual MoviePayment Payment { get; set; }
-        [JsonIgnore]
         public virtual MoviePeriod Period { get; set; }
     }
 }

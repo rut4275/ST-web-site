@@ -7,16 +7,26 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class moviesService{
 
+
     constructor(private _http: HttpClient) {
         
     }
+
+    getOpenMovieFromServer(id: number) :Observable<classMovieOpen> {
+        return this._http.get<classMovieOpen>("/api/moviesOpen/"+id);
+    }
+
     getCloseMovieFromServer(id:number): Observable<classMovieClose> {
         return this._http.get<classMovieClose>("/api/moviesClose/"+id);
     }
 
+    updateCloseMovieInServer(movie : classMovieClose): Observable<classMovieClose> {
+        return this._http.put<classMovieClose>("/api/moviesClose",movie);
+    }
+
     //בקשת רשימת הקרנות סגורות   
     getAllMoviesCloesFromServer(): Observable<classMovieClose[]> {
-        debugger;
+        // debugger;
         return this._http.get<classMovieClose[]>("/api/moviesClose");
     }
     

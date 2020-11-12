@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {  } from './login/login.module';
 import { Router } from '@angular/router';
+import {SelectItem} from 'primeng/api';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   flag:boolean;
   title = 'project';
-  constructor(private router: Router) {}
+  constructor(private router: Router) {  }
   ngOnInit(){
     if(this.router.url === '/login'){
     sessionStorage.setItem("flag",JSON.stringify(false));

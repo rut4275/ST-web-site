@@ -8,5 +8,6 @@ namespace FinalProject.BL
     {
         Task<List<MovieClose>> getAll();
         Task<MovieClose> getMovieCloseById(int id);
+        Task putMovie(MovieClose movieClose);
     }
 }

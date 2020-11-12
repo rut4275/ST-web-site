@@ -1,10 +1,12 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<div class="moviesList">
  <p-toolbar>
   <div class="p-toolbar-group-left">
-      <button style="width: 100%; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="הקרנה חדשה" class="p-button-rounded p-button-denger" (click)="newMovie()"></button>
+      <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="הקרנה חדשה" class="p-button-rounded p-button-denger" (click)="newMovie()"></button>
+      <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="להקרנות סגורות" class="p-button-rounded p-button-denger" (click)="moviesTypeOpen=false" *ngIf="moviesTypeOpen" ></button>
+      <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="להקרנות פתוחות" class="p-button-rounded p-button-denger" (click)="moviesTypeOpen=true" *ngIf="!moviesTypeOpen" ></button>
   </div>
   <div class="p-toolbar-group-right">
   </div>
@@ -12,12 +14,13 @@
 <br> 
 
 
-  <div>{{moviesTypeOpen}}</div>
+  <!-- <div>{{moviesTypeOpen}}</div> -->
+
+    
 <div class="moviesOpenList" *ngIf="moviesTypeOpen"> <!-- template="ngIf moviesTypeOpen!=true"  -->
   <div class="card mb-5">
     <div  style="text-align: right; background: #0264d6;" class="card-header">
         <p style="text-align: center; font-size: large; font-weight: bold;">הקרנות פתוחות</p><br/>
-        <button style="position:relative;left:-46%;"(click)="moviesTypeOpen=false">להקרנות סגורות</button>
     </div>
   <!-- <span style="width:50%; text-align:right;  display: inline-block;"><input name="login" type="submit" value="Sign In" ></span> -->
 
@@ -27,8 +30,8 @@
           
             <th style="text-align: center;">מחיקה</th>
             <th style="text-align: center;">עריכה</th>
-            <th style="text-align: center;">שם <br/> איש קשר <br/> בתרבות</th>
-            <th style="text-align: center;">שם <br/> איש קשר<br/>  מטעמינו</th>
+            <th style="text-align: center;">שם  איש קשר <br/> בתרבות</th>
+            <th style="text-align: center;">שם  איש קשר<br/>  מטעמינו</th>
             <th style="text-align: center;">שם סרט</th>
             <th style="text-align: center;">כתובת<br/> ההקרנה</th>
             <th style="text-align: center;">תאריך<br/>  ההקרנה</th>
@@ -46,7 +49,11 @@
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
           <td style="text-align: center;">{{item.City.CityName}}: {{item.CityAddress}}</td>
           <td style="text-align: center;">{{item.MovieDate | date:'dd/MM/yyyy'}}</td> <!--  -->
-          <td  style="text-align: center;">בינתיים צהרים</td>
+          <td  style="text-align: center;">
+              <span *ngIf="item.TicketCostEvening>0 && item.TicketCostAfternoon>0"> צהריים וערב</span>
+              <span *ngIf="item.TicketCostEvening>0 &&( item.TicketCostAfternoon==null||item.TicketCostAfternoon==0)"> ערב</span>
+              <span *ngIf="(item.TicketCostEvening==0||item.TicketCostEvening==null) && item.TicketCostAfternoon>0"> צהריים </span>
+          </td>
           
         </tr>
     </tbody>
@@ -57,9 +64,8 @@
 <!-- <ng-template #showCloseMoviesList> -->
   <div class="moviesCloseList" *ngIf="!moviesTypeOpen">
     <div class="card mb-5">
-      <div  style="text-align: right; background: #0264d6;" class="card-header">
-          <p style="text-align: center; font-size: large; font-weight: bold;">הקרנות סגורות</p><br/>
-          <button style="position:relative;left:-46%;"(click)="moviesTypeOpen=true">להקרנות פתוחות</button>
+      <div  style="text-align: right; background: #24bbbb;" class="card-header">
+          <p style="text-align: center; font-size:large; font-weight: bold;">הקרנות סגורות</p><br/>
       </div>
 
   <table class="table table-bordered table-sm m-0">
@@ -88,11 +94,17 @@
           <td style="text-align: center;">{{item.Film.FilmName}}</td>
           <td style="text-align: center;">{{item.MovieAddress}}</td>
           <td style="text-align: center;">{{item.MovieDate| date:'dd/MM/yyyy' }}</td> <!-- -->
-          <td style="text-align: center;">בינתיים גלובלית</td>
+          <td style="text-align: center;">
+            <span *ngIf="item.GlobalMovie"> גלובלית</span>
+            <span *ngIf="!item.GlobalMovie"> פר ראש</span>
+          </td>
           
         </tr>
     </tbody>
 </table>
+</div>
+
+</div>
 </div>
 <!-- </div>
 <div class="card">
@@ -120,7 +132,7 @@
 </div> -->
 <!-- </ng-template> -->
 
-<div>{{moviesTypeOpen}}</div>
+<!-- <div>{{moviesTypeOpen}}</div> -->
  <!-- <table id="closeMovie">
     <tr>
         <td>שם מזמין</td>

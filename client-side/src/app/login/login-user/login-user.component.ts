@@ -21,8 +21,9 @@ export class LoginUserComponent implements OnInit {
   login(){
     this.loginService.getUserFromServer(this.name,this.password).subscribe(data => {
       this.user = data;
-      alert("שלום" + " " + this.user.UserName);
+     // alert("שלום" + " " + this.user.UserName);
       sessionStorage.setItem("userName",JSON.stringify(this.user.UserName));
+      // sessionStorage.setItem("flag",JSON.stringify(true));
       if(this.user){
         //this._router.navigate(['nevigate']);
       }
@@ -33,6 +34,7 @@ export class LoginUserComponent implements OnInit {
 
   goToPage(page){
     sessionStorage.setItem("flag",JSON.stringify(true));
+    debugger
     this._router.navigate([page]);  
   }
 

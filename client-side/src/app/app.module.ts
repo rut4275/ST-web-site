@@ -19,6 +19,7 @@ import { filmsService } from './films.service';
 import { moviesPeriodService } from './moviesPeriod.service';
 import { moviesPaymentService } from './moviesPayment.service';
 import { contactsService } from './contact.service';
+import {DropdownModule} from 'primeng/dropdown'; 
 @NgModule({
   declarations: [
      AppComponent,
@@ -37,7 +38,8 @@ import { contactsService } from './contact.service';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    DesignModule
+    DesignModule,
+    DropdownModule
   ],
   providers: [LoginService, booksService, moviesService,filmsService,moviesPeriodService, moviesPaymentService,contactsService],
   bootstrap: [AppComponent]
