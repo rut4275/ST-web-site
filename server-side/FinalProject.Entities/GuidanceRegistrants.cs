@@ -14,7 +14,9 @@ namespace FinalProject.Models‏
 
         [JsonIgnore]
         public virtual Contacts Contact { get; set; }
+        [JsonIgnore]
         public virtual GuidanceGroups Group { get; set; }
+        [JsonIgnore]
         public virtual GuidancePayment Payment { get; set; }
     }
 }

@@ -18,5 +18,15 @@ namespace FinalProject.BL
         {
             return await movieOpenDl.GetAll();
         }
+
+        public async Task<MovieOpen> getMovieCloseById(int id)
+        {
+            return await movieOpenDl.getMovieCloseById(id);
+        }
+
+        public async Task putMovie(MovieOpen movieOpen)
+        {
+            await movieOpenDl.putMovie(movieOpen);
+        }
     }
 }

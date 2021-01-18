@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
+import { citiesService } from 'src/app/cities.service';
 import { contactsService } from 'src/app/contact.service';
 import { filmsService } from 'src/app/films.service';
+import { classCities } from 'src/app/Models/classCities';
 import { classContacts } from 'src/app/Models/classContacts';
 import { classFilms } from 'src/app/Models/classFilms';
 import { classMovieOpen } from 'src/app/Models/classMovieOpen';
@@ -23,6 +25,7 @@ export class OpenMovieComponent implements OnInit {
   public films:classFilms[];
   public contacts:SelectItem[];
   public payments:classMoviePayment[];
+  public cities:classCities[];
   public periods:SelectItem[];
   public flag:boolean;
   public status:number=1;
@@ -51,20 +54,84 @@ export class OpenMovieComponent implements OnInit {
       this.periods.push({label: period[i].PeriodName, value:period[i].PeriodId} );
     }
   }
+
+  updateContactCulture(){
+    
+    const ContactCulture=this.openMovieForm.controls["ContactCulture"].value;
+    this.openMovieForm.controls["ContactCultureFirstName"].setValue(ContactCulture.ContactFirstName);
+    this.openMovieForm.controls["ContactCultureLastName"].setValue(ContactCulture.ContactLastName);
+    this.openMovieForm.controls["ContactCultureEmail"].setValue(ContactCulture.ContactEmail);
+    this.openMovieForm.controls["ContactCulturePhone"].setValue(ContactCulture.ContactPhone);
+    this.openMovieForm.controls["ContactCultureAddress"].setValue(ContactCulture.ContactAddress);
+  }
+  updateInCharge(){
+
+    const inCharge=this.openMovieForm.controls["InCharge"].value;
+    this.openMovieForm.controls["InChargeFirstName"].setValue(inCharge.ContactFirstName);
+    this.openMovieForm.controls["InChargeLastName"].setValue(inCharge.ContactLastName);
+    this.openMovieForm.controls["InChargeEmail"].setValue(inCharge.ContactEmail);
+    this.openMovieForm.controls["InChargePhone"].setValue(inCharge.ContactPhone);
+    this.openMovieForm.controls["InChargeAddress"].setValue(inCharge.ContactAddress);
+  }
+
+  updateOpenMovie(){
+
+    debugger
+    this._openMovie.City=this.openMovieForm.controls["City"].value;
+    this._openMovie.CityId=this.openMovieForm.controls["City"].value.CityId;
+
+    this._openMovie.InCharge=this.openMovieForm.controls["InCharge"].value;
+    this._openMovie.InChargeId=this.openMovieForm.controls["InCharge"].value.InChargeId;
+
+    this._openMovie.Film=this.openMovieForm.controls["Film"].value;
+    this._openMovie.FilmId=this.openMovieForm.controls["Film"].value.FilmId;
+
+    this._openMovie.ContactCulture=this.openMovieForm.controls["AuditoriumCost"].value;
+    this._openMovie.ContactCultureId=this.openMovieForm.controls["AuditoriumCost"].value;
+
+    this._openMovie.AuditoriumCost=this.openMovieForm.controls["AuditoriumCost"].value;
+    this._openMovie.CityAddress=this.openMovieForm.controls["CityAddress"].value;
+    this._openMovie.CountParticipantsAfternoon=this.openMovieForm.controls["CountParticipantsAfternoon"].value;
+    this._openMovie.CountParticipantsEvening=this.openMovieForm.controls["CountParticipantsEvening"].value;
+    this._openMovie.EquipmentCost=this.openMovieForm.controls["EquipmentCost"].value;
+    this._openMovie.InChargeAmount=this.openMovieForm.controls["InChargeAmount"].value;
+    this._openMovie.InChargePaid=this.openMovieForm.controls["InChargePaid"].value;
+    this._openMovie.MovieDate=this.openMovieForm.controls["MovieDate"].value;
+    this._openMovie.NetProfitForDay=this.openMovieForm.controls["NetProfitForDay"].value;
+    this._openMovie.NumberOfSeatsAuditorium=this.openMovieForm.controls["NumberOfSeatsAuditorium"].value;
+    this._openMovie.PeriodId=this.openMovieForm.controls["PeriodId"].value;
+    this._openMovie.TicketCostAfternoon=this.openMovieForm.controls["TicketCostAfternoon"].value;
+    this._openMovie.TicketCostEvening=this.openMovieForm.controls["TicketCostEvening"].value;
+    this._openMovie.WithEquipment=this.openMovieForm.controls["WithEquipment"].value;
+
+    this._moviesService.updateOpenMovieInServer(this._openMovie).subscribe(data=>{
+      this._router.navigate(["/movies/1"]);
+      alert("ההזמנה עודכנה בהצלחה")
+    },
+    err => {
+      alert("שגיאה בעדכון הפרטים, ההזמנה לא עודכנה")
+      this.status=1
+    });
+  }
   constructor(private _acr:ActivatedRoute,private _moviesService :moviesService, private _router: Router
     ,private _periodService:moviesPeriodService ,private _paymentService:moviesPaymentService
-    ,private _contactsService:contactsService ,private _filmsService:filmsService) {}
+    ,private _contactsService:contactsService ,private _filmsService:filmsService
+    ,private _citiesService:citiesService) {
+      debugger
+    }
 
   ngOnInit(): void {
+    debugger
     this._acr.paramMap.subscribe(params => {
       let openMovieId = +params.get("id");
       this.flag = Boolean(+params.get("flag"));
-      // debugger;
+       debugger;
       this._moviesService.getOpenMovieFromServer(openMovieId).subscribe(data => {
         if (openMovieId != 0) {
           this._openMovie = data;
           this.openMovieForm = new FormGroup({
             Film: new FormControl(this._openMovie.Film),
+            City: new FormControl(this._openMovie.City),
             InChargeAmount:new FormControl(this._openMovie.InChargeAmount),
             ContactCulture: new FormControl(this._openMovie.ContactCulture),
             InCharge: new FormControl(this._openMovie.InCharge),
@@ -81,7 +148,6 @@ export class OpenMovieComponent implements OnInit {
             InChargeEmail: new FormControl(this._openMovie.InCharge.ContactEmail),
             InChargePhone: new FormControl(this._openMovie.InCharge.ContactPhone),
             InChargeAddress: new FormControl(this._openMovie.InCharge.ContactAddress),
-
             NumberOfSeatsAuditorium: new FormControl(this._openMovie.NumberOfSeatsAuditorium),
             WithEquipment: new FormControl(this._openMovie.WithEquipment),
             EquipmentCost: new FormControl(this._openMovie.EquipmentCost),
@@ -150,11 +216,19 @@ export class OpenMovieComponent implements OnInit {
     });
 
     //טעינת אופן תשלום
-      this._paymentService.getAllPayment().subscribe(data => {
+    this._paymentService.getAllPayment().subscribe(data => {
       this.payments = data;
       console.log(this.payments);
     },err =>{
       alert("שגיאה בטעינת סרטים");
+    });
+
+    //טעינת רשימת ערים
+      this._citiesService.getAllCities().subscribe(data => {
+      this.cities = data;
+      console.log(this.cities);
+    },err =>{
+      alert("שגיאה בטעינת ערים");
     });
     // debugger;
     //טעינת אנשי קשר

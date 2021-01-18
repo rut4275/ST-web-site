@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace FinalProject.Models‏
 {
@@ -12,7 +13,7 @@ namespace FinalProject.Models‏
 
         public int PaymentId { get; set; }
         public string PaymentType { get; set; }
-
+        [JsonIgnore]
         public virtual ICollection<GuidanceRegistrants> GuidanceRegistrants { get; set; }
     }
 }

@@ -20,6 +20,7 @@ import { moviesPeriodService } from './moviesPeriod.service';
 import { moviesPaymentService } from './moviesPayment.service';
 import { contactsService } from './contact.service';
 import {DropdownModule} from 'primeng/dropdown'; 
+import { citiesService } from './cities.service';
 @NgModule({
   declarations: [
      AppComponent,
@@ -41,7 +42,7 @@ import {DropdownModule} from 'primeng/dropdown';
     DesignModule,
     DropdownModule
   ],
-  providers: [LoginService, booksService, moviesService,filmsService,moviesPeriodService, moviesPaymentService,contactsService],
+  providers: [LoginService, booksService, moviesService,filmsService,moviesPeriodService, moviesPaymentService,contactsService,citiesService],
   bootstrap: [AppComponent]
   
 })

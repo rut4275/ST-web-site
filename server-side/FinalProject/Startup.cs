@@ -49,10 +49,12 @@ namespace FinalProject
             services.AddScoped(typeof(IFilmsDl), typeof(FilmsDl));
             services.AddScoped(typeof(IContactsBl), typeof(ContactsBl));
             services.AddScoped(typeof(IContactsDl), typeof(ContactsDl));
+            services.AddScoped(typeof(ICitiesBl), typeof(CitiesBl));
+            services.AddScoped(typeof(ICitiesDl), typeof(CitiesDl));
 
             services.AddDbContext<FinalProjectContext>(options => options.UseSqlServer
               (Configuration.GetConnectionString("MySiteDB")));
-            //services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" }); });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" }); });
             services.AddControllers().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddScoped<IEmailSender, EmailSender>();
             var emailConfig = Configuration
@@ -87,6 +89,10 @@ namespace FinalProject
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { 
+                c.SwaggerEndpoint("/webapi/swagger/v1/swagger.json", "My API V1"); 
             });
         }
     }

@@ -46,7 +46,7 @@ namespace FinalProject.Controllers
         }
 
         // PUT: api/MoviesClose/5
-       // [HttpPut("{id}")]
+        [HttpPut]//("{id}")
         public async Task Put([FromBody] MovieClose movieClose)
         {
             await moviesCloseBl.putMovie(movieClose);

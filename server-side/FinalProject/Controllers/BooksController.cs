@@ -45,7 +45,7 @@ namespace FinalProject.Controllers
         }
 
         // PUT api/<BooksController>/5
-        //[HttpPut("{id}")]
+        [HttpPut]//("{id}")
         public async Task Put([FromBody] BooksOrders booksOrders)
         {
             await booksOrdersBl.PutOrders(booksOrders);

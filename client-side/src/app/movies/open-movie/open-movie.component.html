@@ -1,1 +1,261 @@
-<p>open-movie works!</p>
+<body style="margin-left: -20%; margin-top: -3%;">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <div class="container contact-form">
+        <!-- <p-scrollPanel style="width: 80%; height: 80%; margin-bottom: 20%;"> -->
+        <form class="form" [formGroup]="openMovieForm" *ngIf="_openMovie" method="post" style=" position: relative; top: 100px;text-align: right;">
+            <h4> פרטי הקרנה פתוחה: {{_openMovie.Film.FilmName}} , {{_openMovie.CityAddress}}</h4>
+            <br>
+                <div class="row">
+                    <div class="col-md-6" *ngIf="status==1">
+                            <div style="text-align: right;" class="form-group">
+                                <label style="font-weight: bold;">פרטי הקרנה</label>
+                                <br>
+                                <label for="Film">שם הסרט</label><br>
+                                <p-dropdown id="Film" [options]="films" optionLabel="FilmName" formControlName="Film" [filter]="true" ></p-dropdown>
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+
+                                <label for="City">עיר</label><br>
+                                <p-dropdown id="City" [options]="cities" optionLabel="CityName" formControlName="City" [filter]="true" ></p-dropdown>
+                            </div>
+                            <div style="text-align: right;" class="form-group">
+                                <label for="CityAddress">כתובת ההקרנה</label>
+                                <input style="text-align: right;" type="text" id="CityAddress" name="txtName" class="form-control" formControlName="CityAddress" value="" />
+                            </div>
+
+                            <div style="text-align: right;" class="form-group">
+                                <label for="Period">עונה</label><br>
+                                <p-dropdown id="Period" [options]="periods" formControlName="PeriodId" [filter]="true" > </p-dropdown>
+                              
+                            </div>
+
+                            <div style="text-align: right;" class="form-group">
+                                <label for="MovieDate">תאריך ההקרנה</label>
+                                <input style="text-align: right;" type="date" id="MovieDate" name="txtName" class="form-control" formControlName="MovieDate" value="" />
+                            </div>
+
+
+                    </div>
+                    <div class="col-md-6" *ngIf="status==1" style=" position: relative; top: 50px">
+ 
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactCulture">איש קשר בתרבות</label><br>
+                            <p-dropdown id="ContactCulture" [options]="contacts"  formControlName="ContactCulture" [filter]="true" (onChange)="updateContactCulture()"></p-dropdown>
+                         
+                        </div>
+
+                        <div style="text-align: right;" class="form-group">
+                            <label for="InCharge">נאמנת</label><br>
+                            <p-dropdown id="InCharge" [options]="contacts"  formControlName="InCharge" [filter]="true" (onChange)="updateInCharge()"></p-dropdown>
+                         
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">שולם לנאמנת
+                            <input [(ngModel)]="_openMovie.InChargePaid" type="checkbox" class="custom-control-input" formControlName="InChargePaid"/>
+                            <span class="custom-control-indicator"></span>
+                            </label>
+                        </div>
+                       
+
+                        <div style="text-align: right;" class="form-group">
+                            <label for="NumberOfSeatsAuditorium">תשלום לנאמנת</label>
+                            <input style="text-align: left;" type="number" id="NumberOfSeatsAuditorium" name="txtName" class="form-control" formControlName="NumberOfSeatsAuditorium" value="" />
+                        </div>
+                        
+                        
+                        <!-- <div style="text-align: left;" class="form-group" style=" position: absolute; top: 370px;left: 40px;text-align: right;">
+                            <br><br>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=2"></button>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6" *ngIf="status==2">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי האולם</label>
+                            <br>
+                            <label for="NumberOfSeatsAuditorium">מספר המקומות באולם</label>
+                            <input style="text-align: left;" type="number" id="NumberOfSeatsAuditorium" name="txtName" class="form-control" formControlName="NumberOfSeatsAuditorium" value="" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">האם יש ציוד
+                            <input [(ngModel)]="_openMovie.WithEquipment" type="checkbox" class="custom-control-input" formControlName="WithEquipment"/>
+                            <span class="custom-control-indicator"></span>
+                            </label>
+                        </div>
+                       
+                        <div style="text-align: right;" class="form-group">
+                            <label for="EquipmentCost">עלות הציוד</label>
+                            <input style="text-align: left;" type="number" id="EquipmentCost" name="txtName" class="form-control" formControlName="EquipmentCost" value="" />
+                        </div>    
+                                               
+                        <div style="text-align: right;" class="form-group">
+                            <label for="AuditoriumCost">עלות האולם</label>
+                            <input style="text-align: left;" type="number" id="AuditoriumCost" name="txtName" class="form-control" formControlName="AuditoriumCost" value="" />
+                        </div>    
+                        
+                    </div>
+                    <div class="col-md-6" *ngIf="status==2">
+<!--   
+                        <div style="text-align: left;" class="form-group" style=" position: absolute; top: 420px;left: 40px;text-align: right;">
+                            <br><br>
+                                    
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=1"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=3"></button>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6" *ngIf="status==3">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">איש קשר בתרבות</label>
+                            <br>
+                            <label for="ContactCultureFirstName">שם פרטי</label>
+                            <input style="text-align: right;" type="text" id="ContactCultureFirstName" name="txtName" class="form-control" formControlName="ContactCultureFirstName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactCultureLastName">שם משפחה</label>
+                            <input style="text-align: right;" type="text" id="ContactCultureLastName" name="txtName" class="form-control" formControlName="ContactCultureLastName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactCultureEmail">אמייל</label>
+                            <input style="text-align: right;" type="text" id="ContactCultureEmail" name="txtName" class="form-control" formControlName="ContactCultureEmail" value="" />
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6" *ngIf="status==3"  style=" position: relative; top: 50px">
+                          
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactCulturePhone">מספר פלאפון</label>
+                            <input style="text-align: right;" type="text" id="ContactCulturePhone" name="txtName" class="form-control" formControlName="ContactCulturePhone" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="ContactCultureAddress">כתובת</label>
+                            <input style="text-align: right;" type="text" id="ContactCultureAddress" name="txtName" class="form-control" formControlName="ContactCultureAddress" value="" />
+                        </div>
+
+
+                        <!-- <div style="text-align: left;" class="form-group" style=" position: absolute; top: 380px;left: 40px;text-align: right;">
+                    
+                                <br><br>
+                                
+                                <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=2"></button>
+                                <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=4"></button>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6" *ngIf="status==4">
+                        <div style="text-align: right;" class="form-group">
+                            <label style="font-weight: bold;">פרטי נאמנת</label>
+                            <br>
+                            <label for="InChargeFirstName">שם פרטי</label>
+                            <input style="text-align: right;" type="text" id="InChargeFirstName" name="txtName" class="form-control" formControlName="InChargeFirstName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="InChargeLastName">שם משפחה</label>
+                            <input style="text-align: right;" type="text" id="InChargeLastName" name="txtName" class="form-control" formControlName="InChargeLastName" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="InChargeEmail">אמייל</label>
+                            <input style="text-align: right;" type="text" id="InChargeEmail" name="txtName" class="form-control" formControlName="InChargeEmail" value="" />
+                        </div>
+                    </div>
+                    <div class="col-md-6" *ngIf="status==4"  style=" position: relative; top: 50px">
+                        <div style="text-align: right;" class="form-group">
+                            <label for="InChargePhone">מספר פלאפון</label>
+                            <input style="text-align: right;" type="text" id="InChargePhone" name="txtName" class="form-control" formControlName="InChargePhone" value="" />
+                        </div>
+                        <div style="text-align: right;" class="form-group">
+                            <label for="InChargeAddress">כתובת</label>
+                            <input style="text-align: right;" type="text" id="InChargeAddress" name="txtName" class="form-control" formControlName="InChargeAddress" value="" />
+                        </div>
+
+                        <!-- <div style="text-align: center;" style=" position: absolute; top: 400px;left: 40px;text-align: right;">
+                             
+                            <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=3"></button>
+                            <button pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=5"></button>
+
+                        </div> -->
+                </div>
+
+                
+                <div class="col-md-6" *ngIf="status==5">
+                        
+                    <div style="text-align: right;" class="form-group">
+                        <label for="CountParticipantsAfternoon">מספר המשתתפים בצהריים</label>
+                        <input style="text-align: left;" type="number" id="CountParticipantsAfternoon" name="txtName" class="form-control" formControlName="CountParticipantsAfternoon" value="" />
+                    </div> 
+
+                    <div style="text-align: right;" class="form-group">
+                        <label for="CountParticipantsEvening">מספר המשתתפים בערב</label>
+                        <input style="text-align: left;" type="number" id="CountParticipantsEvening" name="txtName" class="form-control" formControlName="CountParticipantsEvening" value="" />
+                    </div>    
+
+                    <div style="text-align: right;" class="form-group">
+                        <label for="TicketCostAfternoon">מחיר בצהריים</label>
+                        <input style="text-align: left;" type="number" id="TicketCostAfternoon" name="txtName" class="form-control" formControlName="TicketCostAfternoon" value="" />
+                    </div>    
+
+                    <div style="text-align: right;" class="form-group">
+                        <label for="TicketCostEvening">מחיר בערב</label>
+                        <input style="text-align: left;" type="number" id="TicketCostEvening" name="txtName" class="form-control" formControlName="TicketCostEvening" value="" />
+                    </div>      
+
+                    <div style="text-align: right;" class="form-group">
+                        <label for="NetProfitForDay">סך הכל רווח</label>
+                        <input style="text-align: left;" type="number" id="NetProfitForDay" name="txtName" class="form-control" formControlName="NetProfitForDay" value="" />
+                    </div>   
+                </div>
+                <div class="col-md-6" *ngIf="status==5">
+                    
+                    <!-- <div style="text-align: center;" style=" position: absolute; top: 450px;left: 40px;text-align: right;">
+                         
+                        <button pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=4"></button>
+                       <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateOpenMovie()"></button>
+                    </div> -->
+            </div>
+                </div>     
+            <div style="text-align: left;" class="form-group" style=" position: absolute; top: 450px;left: 40px;text-align: right;">
+                    
+            <br><br>
+            
+            <button *ngIf="status>1" pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=status-1"></button>
+            <button *ngIf="5 > status" pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=status+1"></button>
+            <button *ngIf="5 == status" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateOpenMovie()"></button>
+    </div>
+        </form>
+
+        <!--  ניווט -->
+        <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 600px;text-align: right;"><!--  -->
+            <div class="stepwizard-row">
+                <div class="stepwizard-step"style=" width: 20%;">
+                    <button pButton pRipple type="button" icon="pi pi-video" class="p-button-rounded p-button-danger"(click)="status=1"></button>
+                    <p>1.פרטי הקרנה</p>
+                </div>
+                <div class="stepwizard-step"style=" width: 20%;">
+                    <button pButton pRipple type="button" icon="pi pi-info-circle" class="p-button-rounded p-button-help"(click)="status=2"></button>
+                    <p>2.פרטי האולם</p>
+                </div>
+                <div class="stepwizard-step"style=" width: 20%;">
+                    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-warning" (click)="status=3"></button>
+                    <p>3.איש קשר בתרבות</p>
+                </div> 
+                <div class="stepwizard-step"style=" width: 20%;">
+                    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-success"(click)="status=4"></button>
+                    <p>4.נאמנת</p>
+                </div> 
+                <div class="stepwizard-step"style=" width: 20%;">
+                    <button pButton pRipple type="button" icon="pi pi-bookmark" class="p-button-rounded p-button-secondary"(click)="status=5"></button>
+                    <p>5.סיכום ההקרנה</p>
+                </div> 
+            <!-- </div> -->
+        </div>
+       
+    <!-- </p-scrollPanel> -->
+    </div>
+    <!-- </body> -->
+    
+    

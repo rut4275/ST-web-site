@@ -32,7 +32,7 @@ namespace FinalProject.BL
             await booksOrdersDl.PutOrders(booksOrders);
 
             //sendEmail();
-            //var message = new Message(new string[] { "srk34389@gmail.com" }, "Test email", "This is the content from our email.");
+            //var message = new Message(new string[] { "" }, "Test email", "This is the content from our email.");
             //emailSender.SendEmail(message);
             //var files = Request.Form.Files.Any() ? Request.Form.Files : new FormFileCollection();
             //var message = new Message(new string[] { "codemazetest@mailinator.com" }, "Test mail with Attachments", "This is the content from our mail with attachments.", files);
@@ -91,7 +91,7 @@ namespace FinalProject.BL
                     "מצורפים כאן קבצי העזר עבור ספרי סוד ההבעה שהוזמנו" + "\n" +
                     "שנת למידה מבורכת:)" + "\n" +
                     "מירי ואסתי";
-                System.Net.Mail.Attachment attachment;
+                //System.Net.Mail.Attachment attachment;
 
                 //if (arrBooks[0])
                 //{
@@ -112,7 +112,7 @@ namespace FinalProject.BL
                 //}
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("rut4275@gmail.com", "dukeruczvnu,d");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("rut4275@gmail.com", "");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

@@ -17,7 +17,10 @@ namespace FinalProject.Models‏
         public int AdvertisingContactId { get; set; }
 
         public virtual Contacts AdvertisingContact { get; set; }
+        [JsonIgnore]
         public virtual MovieAdvertisingStage AdvertisingStage { get; set; }
+        [JsonIgnore]
+
         public virtual MovieAdvertisingType AdvertisingType { get; set; }
         [JsonIgnore]
         public virtual Cities City { get; set; }

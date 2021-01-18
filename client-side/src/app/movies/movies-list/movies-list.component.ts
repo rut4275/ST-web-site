@@ -27,6 +27,7 @@ export class MoviesListComponent implements OnInit {
 
   }
   goToEdit(idMovie:number,flag:boolean){
+    debugger
     if(this.moviesTypeOpen){
       this._router.navigate(['/openMovies',idMovie, flag]);
     }else{

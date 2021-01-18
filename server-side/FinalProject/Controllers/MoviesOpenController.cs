@@ -13,38 +13,45 @@ namespace FinalProject.Controllers
     [ApiController]
     public class MoviesOpenController : ControllerBase
     {
-        public IMovieOpenBl MovieOpen;
+        public IMovieOpenBl movieOpenBl;
         public MoviesOpenController(IMovieOpenBl _MovieOpen)
         {
-            MovieOpen = _MovieOpen;
+            movieOpenBl = _MovieOpen;
         }
 
         // GET: api/Movies
         [HttpGet]
         public async Task<List<MovieOpen>> Get()
         {
-            return await MovieOpen.GetAll();
+            return await movieOpenBl.GetAll();
         }
 
-        //   // GET: api/Movies/5
-        //   [HttpGet("{id}", Name = "Get")]
-        //   public string Get(int id)
-        //   {
-        //       return "value";
-        //   }
-             
+        // GET: api/Movies/5
+        [HttpGet("{id}")]/*, Name = "Get"*/
+        public async Task<MovieOpen> Get(int id)
+        {
+            return await movieOpenBl.getMovieCloseById(id);
+        }
+
+
+        //[HttpGet]
+        //public async Task<MovieOpen> Get([FromQuery] int id)
+        //{
+        //    return await movieOpenBl.getMovieCloseById(id);
+        //}
+
         //   // POST: api/Movies
         //   [HttpPost]
         //   public void Post([FromBody] string value)
         //   {
         //   }
-             
-        //   // PUT: api/Movies/5
-        //   [HttpPut("{id}")]
-        //   public void Put(int id, [FromBody] string value)
-        //   {
-        //   }
-             
+
+        [HttpPut("{id}")]
+        public async Task Put(int id, [FromBody] MovieOpen movieOpen)
+        {
+            await movieOpenBl.putMovie(movieOpen);
+        }
+
         //   // DELETE: api/ApiWithActions/5
         //   [HttpDelete("{id}")]
         //   public void Delete(int id)

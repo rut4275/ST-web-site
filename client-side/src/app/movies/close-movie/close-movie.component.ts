@@ -128,11 +128,11 @@ export class CloseMovieComponent implements OnInit {
     this._moviesService.updateCloseMovieInServer(this._closeMovie).subscribe(data=>{
       this._router.navigate(["/movies/0"]);
       alert("ההזמנה עודכנה בהצלחה")
-    })
+    },
     err => {
-      this._closeMovie = null;
       alert("שגיאה בעדכון הפרטים, ההזמנה לא עודכנה")
-    };
+      this.status=1
+    });
   }
   
   

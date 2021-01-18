@@ -6,9 +6,9 @@ export class classMoviePeriod{
     public PeriodId:number;
     public PeriodName:string;
     public PeriodDate:Date;
-    public  MovieAdvertising:classMovieAdvertising[];
-    public  MovieClose:classMovieClose[];
-    public  MovieOpen:classMovieOpen[];
+    // public  MovieAdvertising:classMovieAdvertising[];
+    // public  MovieClose:classMovieClose[];
+    // public  MovieOpen:classMovieOpen[];
 }
 
 

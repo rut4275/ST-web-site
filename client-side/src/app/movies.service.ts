@@ -24,6 +24,10 @@ export class moviesService{
         return this._http.put<classMovieClose>("/api/moviesClose",movie);
     }
 
+    updateOpenMovieInServer(movie : classMovieOpen): Observable<classMovieOpen> {
+        return this._http.put<classMovieOpen>("/api/moviesOpen/0",movie);
+    }
+
     //בקשת רשימת הקרנות סגורות   
     getAllMoviesCloesFromServer(): Observable<classMovieClose[]> {
         // debugger;

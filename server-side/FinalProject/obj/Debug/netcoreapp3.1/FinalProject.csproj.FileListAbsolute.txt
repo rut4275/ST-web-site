@@ -385,3 +385,4 @@ C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProjec
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.dll
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.pdb
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.genruntimeconfig.cache
+C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject\bin\Debug\netcoreapp3.1\swagger.json

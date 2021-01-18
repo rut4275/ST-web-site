@@ -25,6 +25,7 @@ namespace FinalProject.Models‏
         public int SecrataryCost { get; set; }
 
         public virtual Cities MeetingCity { get; set; }
+        [JsonIgnore]
         public virtual ICollection<GuidanceMeetings> GuidanceMeetings { get; set; }
         [JsonIgnore]
         public virtual ICollection<GuidanceRegistrants> GuidanceRegistrants { get; set; }

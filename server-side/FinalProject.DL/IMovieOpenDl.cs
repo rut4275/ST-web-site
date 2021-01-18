@@ -7,5 +7,7 @@ namespace FinalProject.DL
     public interface IMovieOpenDl
     {
         Task<List<MovieOpen>> GetAll();
+        Task<MovieOpen> getMovieCloseById(int id);
+        Task putMovie(MovieOpen movieOpen);
     }
 }
