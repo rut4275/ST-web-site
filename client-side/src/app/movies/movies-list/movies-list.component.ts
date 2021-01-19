@@ -21,7 +21,12 @@ export class MoviesListComponent implements OnInit {
   // }
 
   newMovie(){
-    
+    if(this.moviesTypeOpen){
+      this._router.navigate([])
+    }
+    else{
+
+    }
   }
   delete(idMovie:number){
 
