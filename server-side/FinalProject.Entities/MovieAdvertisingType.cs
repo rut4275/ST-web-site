@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class MovieAdvertisingType
     {
@@ -13,6 +13,7 @@ namespace FinalProject.Models‏
 
         public int AdvertisingTypeId { get; set; }
         public string AdvertisingTypeName { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<MovieAdvertising> MovieAdvertising { get; set; }
     }

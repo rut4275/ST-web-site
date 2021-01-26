@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class BooksCost
     {
@@ -10,7 +10,7 @@ namespace FinalProject.Models‏
         public int BookId { get; set; }
         public int CustomerCategoryId { get; set; }
         public int Year { get; set; }
-        public int Cost { get; set; }
+        public double Cost { get; set; }
 
         public virtual Books Book { get; set; }
         [JsonIgnore]

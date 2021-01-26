@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class Books
     {
@@ -15,6 +15,7 @@ namespace FinalProject.Models‏
         public int BookId { get; set; }
         public string NameBook { get; set; }
         public string ClassBook { get; set; }
+        public string FilePath { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<BooksCost> BooksCost { get; set; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class GuidanceRegistrants
     {

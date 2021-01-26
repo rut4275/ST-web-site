@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class FinalProjectContext : DbContext
     {
@@ -23,6 +23,7 @@ namespace FinalProject.Models‏
         public virtual DbSet<BooksOrders> BooksOrders { get; set; }
         public virtual DbSet<Cities> Cities { get; set; }
         public virtual DbSet<Contacts> Contacts { get; set; }
+        public virtual DbSet<EmailDetailes> EmailDetailes { get; set; }
         public virtual DbSet<Films> Films { get; set; }
         public virtual DbSet<GuidanceAttendance> GuidanceAttendance { get; set; }
         public virtual DbSet<GuidanceGroups> GuidanceGroups { get; set; }
@@ -61,6 +62,10 @@ namespace FinalProject.Models‏
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
+
+                entity.Property(e => e.FilePath)
+                    .IsRequired()
+                    .HasColumnName("File_Path");
 
                 entity.Property(e => e.NameBook)
                     .IsRequired()
@@ -146,6 +151,8 @@ namespace FinalProject.Models‏
 
                 entity.Property(e => e.OrderId).HasColumnName("Order_ID");
 
+                entity.Property(e => e.UnitPrice).HasColumnName("Unit_Price");
+
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.BooksOrderItem)
                     .HasForeignKey(d => d.BookId)
@@ -221,6 +228,21 @@ namespace FinalProject.Models‏
                 entity.Property(e => e.ContactPhone)
                     .IsRequired()
                     .HasColumnName("Contact_Phone")
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<EmailDetailes>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
                     .HasMaxLength(50);
             });
 
@@ -642,12 +664,22 @@ namespace FinalProject.Models‏
 
                 entity.Property(e => e.UserId).HasColumnName("User_ID");
 
+                entity.Property(e => e.UserMail)
+                    .IsRequired()
+                    .HasColumnName("User_Mail")
+                    .HasMaxLength(50);
+
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasColumnName("User_Name")
                     .HasMaxLength(50);
 
                 entity.Property(e => e.UserPassword).HasColumnName("User_Password");
+
+                entity.Property(e => e.UserPhone)
+                    .HasColumnName("User_phone")
+                    .HasMaxLength(10)
+                    .IsFixedLength();
             });
 
             OnModelCreatingPartial(modelBuilder);

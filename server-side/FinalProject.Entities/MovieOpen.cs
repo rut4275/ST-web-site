@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class MovieOpen
     {
@@ -25,14 +24,11 @@ namespace FinalProject.Models‏
         public double InChargeAmount { get; set; }
         public bool InChargePaid { get; set; }
         public double NetProfitForDay { get; set; }
+
         public virtual Cities City { get; set; }
-        
         public virtual Contacts ContactCulture { get; set; }
-        
         public virtual Films Film { get; set; }
-        
         public virtual Contacts InCharge { get; set; }
-       
         public virtual MoviePeriod Period { get; set; }
     }
 }

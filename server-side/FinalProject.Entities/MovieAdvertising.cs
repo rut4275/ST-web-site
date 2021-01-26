@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FinalProject.Models‏
+namespace FinalProject.Models
 {
     public partial class MovieAdvertising
     {
@@ -20,7 +20,6 @@ namespace FinalProject.Models‏
         [JsonIgnore]
         public virtual MovieAdvertisingStage AdvertisingStage { get; set; }
         [JsonIgnore]
-
         public virtual MovieAdvertisingType AdvertisingType { get; set; }
         [JsonIgnore]
         public virtual Cities City { get; set; }
