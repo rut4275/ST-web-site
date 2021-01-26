@@ -15,6 +15,7 @@ export class AppComponent {
   title = 'project';
   constructor(private router: Router) {  }
   ngOnInit(){
+    debugger
     if(this.router.url === '/login'){
     sessionStorage.setItem("flag",JSON.stringify(false));
   }

@@ -7,7 +7,8 @@
     <div class="container contact-form">
         <!-- <p-scrollPanel style="width: 80%; height: 80%; margin-bottom: 20%;"> -->
         <form class="form" [formGroup]="closeMovieForm" *ngIf="_closeMovie" method="post" style=" position: relative; top: 100px;text-align: right;">
-            <h4> פרטי הקרנה סגורה:{{_closeMovie.Film.FilmName}} , {{_closeMovie.MovieAddress}}</h4>
+            <h4 *ngIf="flag"> פרטי הקרנה סגורה:{{_closeMovie.Film.FilmName}} , {{_closeMovie.MovieAddress}}</h4>
+            <h4 *ngIf="!flag"> הקרנה סגורה חדשה</h4>
             <br>
                 <div class="row">
                     <div class="col-md-6" *ngIf="status==1">
@@ -15,7 +16,7 @@
                                 <label style="font-weight: bold;">פרטי הקרנה</label>
                                 <br>
                                 <label for="Film">שם הסרט</label>
-                                <p-dropdown id="Film" [options]="films" optionLabel="FilmName" formControlName="Film" [filter]="true" ></p-dropdown>
+                                <p-dropdown id="Film" [options]="films" optionLabel="FilmName" formControlName="Film" [filter]="true" placeholder="בחר סרט"></p-dropdown>
                             </div>
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox">גלובלית
@@ -33,29 +34,29 @@
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="Order">המזמין</label>
-                                <p-dropdown id="Order" [options]="contacts"formControlName="Order" [filter]="true" (onChange)="updateOrder()"></p-dropdown>
+                                <p-dropdown id="Order" [options]="contacts"formControlName="Order" [filter]="true" (onChange)="updateOrder()" placeholder="בחר מזמין"></p-dropdown>
 
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="Contact">איש קשר</label>
-                                <p-dropdown id="Contact" [options]="contacts"  formControlName="Contact" [filter]="true" (onChange)="updateContact()"></p-dropdown>
+                                <p-dropdown id="Contact" [options]="contacts"  formControlName="Contact" [filter]="true" (onChange)="updateContact()" placeholder="בחר איש קשר"></p-dropdown>
                              
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="InCharge">נאמנת</label>
-                                <p-dropdown id="InCharge" [options]="contacts"formControlName="InCharge" [filter]="true" (onChange)="updateInCharge()"></p-dropdown>
+                                <p-dropdown id="InCharge" [options]="contacts"formControlName="InCharge" [filter]="true" (onChange)="updateInCharge()" placeholder="בחר נאמנת"></p-dropdown>
                                 
                             </div>
                     </div>
                     <div class="col-md-6" *ngIf="status==1">
                             <div style="text-align: right;" class="form-group">
                                 <label for="Period">עונה</label>
-                                <p-dropdown id="Period" [options]="periods" formControlName="PeriodId" [filter]="true" > </p-dropdown>
+                                <p-dropdown id="Period" [options]="periods" formControlName="PeriodId" [filter]="true" placeholder="בחר עונה"> </p-dropdown>
                               
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="Payment">אופן תשלום</label>
-                                <p-dropdown id="Payment" [options]="payments" optionLabel="PaymentType" formControlName="Payment" [filter]="true" ></p-dropdown>
+                                <p-dropdown id="Payment" [options]="payments" optionLabel="PaymentType" formControlName="Payment" [filter]="true" placeholder="בחר אופן תשלום"></p-dropdown>
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="InChargeAmount">התשלום לנאמנת</label>
@@ -191,8 +192,11 @@
                     
                     <button *ngIf="status>1" pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=status-1"></button>
                     <button *ngIf="4 > status" pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=status+1"></button>
-                    <button *ngIf="4 == status" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateCloseMovie()"></button>
+                    <button *ngIf="4 == status && flag" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateCloseMovie()"></button>
+                    <button *ngIf="4 == status && !flag" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="newCloseMovie()"></button>
             </div>
+<app-contact-details-pop-up *ngIf="displayModal" [displayModal]="true" (newContactEvent)="newContact($event)"></app-contact-details-pop-up>
+
         </form>
         <!--  ניווט -->
         <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 600px;text-align: right;"><!--  -->

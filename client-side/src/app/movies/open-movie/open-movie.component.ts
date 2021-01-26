@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { citiesService } from 'src/app/cities.service';
@@ -31,9 +31,17 @@ export class OpenMovieComponent implements OnInit {
   public status:number=1;
   public _openMovie:classMovieOpen;
   public openMovieForm: FormGroup;
-
+  public newInCharge:boolean=false;
+  public newCulture:boolean=false;
+  public displayModal: boolean=false;
+  
   createArray(contact:classContacts[]){
     this.contacts=[];
+    
+    const c=new classContacts()
+    c.ContactId=-1;
+    this.contacts.push({label:"חדש",value:c})
+
     for (let i = 0; i < contact.length; i++) {
       debugger
       console.log(i+" "+contact[i]);
@@ -54,9 +62,55 @@ export class OpenMovieComponent implements OnInit {
       this.periods.push({label: period[i].PeriodName, value:period[i].PeriodId} );
     }
   }
+  newContact(contact:classContacts){
+    debugger
+    this.displayModal=false;
+    this.contacts.push({label: contact.ContactFirstName+" "+contact.ContactLastName, value:
+      {ContactId:contact.ContactId,
+        ContactFirstName:contact.ContactFirstName,
+        ContactLastName:contact.ContactLastName,
+        ContactPhone:contact.ContactPhone,
+        ContactEmail:contact.ContactEmail,
+        ContactAddress:contact.ContactAddress} });
 
+     if(this.newCulture){
+      
+       this.newCulture=false;
+       if(contact.ContactId==-1){
+       this.openMovieForm.controls["ContactCulture"].setValue("");
+       return;
+       }
+       this.openMovieForm.controls["ContactCulture"].setValue( {ContactId:contact.ContactId,
+        ContactFirstName:contact.ContactFirstName,
+        ContactLastName:contact.ContactLastName,
+        ContactPhone:contact.ContactPhone,
+        ContactEmail:contact.ContactEmail,
+        ContactAddress:contact.ContactAddress} );
+        this.updateContactCulture();
+     }
+     if(this.newInCharge){
+       debugger
+      this.newInCharge=false;
+      if(contact.ContactId==-1){
+        this.openMovieForm.controls["InCharge"].setValue("");
+        return;
+        }
+      this.openMovieForm.controls["InCharge"].setValue( {ContactId:contact.ContactId,
+        ContactFirstName:contact.ContactFirstName,
+        ContactLastName:contact.ContactLastName,
+        ContactPhone:contact.ContactPhone,
+        ContactEmail:contact.ContactEmail,
+        ContactAddress:contact.ContactAddress} );
+        this.updateInCharge()
+     }
+  }
   updateContactCulture(){
-    
+    if(this.openMovieForm.controls["ContactCulture"].value.ContactId == -1){
+      this.newCulture=true;
+      this.displayModal=true;
+      //this.openMovieForm.controls["ContactCulture"].setValue("");צריך לשנות את זה לאיש קשר החדש!!!1
+
+    }
     const ContactCulture=this.openMovieForm.controls["ContactCulture"].value;
     this.openMovieForm.controls["ContactCultureFirstName"].setValue(ContactCulture.ContactFirstName);
     this.openMovieForm.controls["ContactCultureLastName"].setValue(ContactCulture.ContactLastName);
@@ -65,7 +119,12 @@ export class OpenMovieComponent implements OnInit {
     this.openMovieForm.controls["ContactCultureAddress"].setValue(ContactCulture.ContactAddress);
   }
   updateInCharge(){
+    if(this.openMovieForm.controls["InCharge"].value.ContactId == -1){
+      this.newInCharge=true;
+      this.displayModal=true;
 
+     // this.openMovieForm.controls["InCharge"].setValue("");//צריך לשנות את זה לאיש קשר החדש!!!1
+    }
     const inCharge=this.openMovieForm.controls["InCharge"].value;
     this.openMovieForm.controls["InChargeFirstName"].setValue(inCharge.ContactFirstName);
     this.openMovieForm.controls["InChargeLastName"].setValue(inCharge.ContactLastName);
@@ -81,13 +140,53 @@ export class OpenMovieComponent implements OnInit {
     this._openMovie.CityId=this.openMovieForm.controls["City"].value.CityId;
 
     this._openMovie.InCharge=this.openMovieForm.controls["InCharge"].value;
-    this._openMovie.InChargeId=this.openMovieForm.controls["InCharge"].value.InChargeId;
+    this._openMovie.InChargeId=this.openMovieForm.controls["InCharge"].value.ContactId;
 
     this._openMovie.Film=this.openMovieForm.controls["Film"].value;
     this._openMovie.FilmId=this.openMovieForm.controls["Film"].value.FilmId;
 
-    this._openMovie.ContactCulture=this.openMovieForm.controls["AuditoriumCost"].value;
-    this._openMovie.ContactCultureId=this.openMovieForm.controls["AuditoriumCost"].value;
+    this._openMovie.ContactCulture=this.openMovieForm.controls["ContactCulture"].value;
+    this._openMovie.ContactCultureId=this.openMovieForm.controls["ContactCulture"].value.ContactId;
+
+    this._openMovie.AuditoriumCost=this.openMovieForm.controls["AuditoriumCost"].value;
+    this._openMovie.CityAddress=this.openMovieForm.controls["CityAddress"].value;
+    this._openMovie.CountParticipantsAfternoon=this.openMovieForm.controls["CountParticipantsAfternoon"].value;
+    this._openMovie.CountParticipantsEvening=this.openMovieForm.controls["CountParticipantsEvening"].value;
+    this._openMovie.EquipmentCost=this.openMovieForm.controls["EquipmentCost"].value;
+    this._openMovie.InChargeAmount=this.openMovieForm.controls["InChargeAmount"].value;
+    this._openMovie.InChargePaid=this.openMovieForm.controls["InChargePaid"].value;
+    debugger
+    this._openMovie.MovieDate=this.openMovieForm.controls["MovieDate"].value;
+    this._openMovie.NetProfitForDay=this.openMovieForm.controls["NetProfitForDay"].value;
+    this._openMovie.NumberOfSeatsAuditorium=this.openMovieForm.controls["NumberOfSeatsAuditorium"].value;
+    this._openMovie.PeriodId=this.openMovieForm.controls["PeriodId"].value;
+    this._openMovie.TicketCostAfternoon=this.openMovieForm.controls["TicketCostAfternoon"].value;
+    this._openMovie.TicketCostEvening=this.openMovieForm.controls["TicketCostEvening"].value;
+    this._openMovie.WithEquipment=this.openMovieForm.controls["WithEquipment"].value;
+
+    this._moviesService.updateOpenMovieInServer(this._openMovie).subscribe(data=>{
+      this._router.navigate(["/movies/1"]);
+      alert("ההזמנה עודכנה בהצלחה")
+    },
+    err => {
+      alert("שגיאה בעדכון הפרטים, ההזמנה לא עודכנה")
+      this.status=1
+    });
+  }
+  newOpenMovie(){
+    
+    debugger
+    this._openMovie.City=this.openMovieForm.controls["City"].value;
+    this._openMovie.CityId=this.openMovieForm.controls["City"].value.CityId;
+
+    this._openMovie.InCharge=this.openMovieForm.controls["InCharge"].value;
+    this._openMovie.InChargeId=this.openMovieForm.controls["InCharge"].value.ContactId;
+
+    this._openMovie.Film=this.openMovieForm.controls["Film"].value;
+    this._openMovie.FilmId=this.openMovieForm.controls["Film"].value.FilmId;
+
+    this._openMovie.ContactCulture=this.openMovieForm.controls["ContactCulture"].value;
+    this._openMovie.ContactCultureId=this.openMovieForm.controls["ContactCulture"].value.ContactId;
 
     this._openMovie.AuditoriumCost=this.openMovieForm.controls["AuditoriumCost"].value;
     this._openMovie.CityAddress=this.openMovieForm.controls["CityAddress"].value;
@@ -104,7 +203,7 @@ export class OpenMovieComponent implements OnInit {
     this._openMovie.TicketCostEvening=this.openMovieForm.controls["TicketCostEvening"].value;
     this._openMovie.WithEquipment=this.openMovieForm.controls["WithEquipment"].value;
 
-    this._moviesService.updateOpenMovieInServer(this._openMovie).subscribe(data=>{
+    this._moviesService.newMovieOpenToServer(this._openMovie).subscribe(data=>{
       this._router.navigate(["/movies/1"]);
       alert("ההזמנה עודכנה בהצלחה")
     },
@@ -129,6 +228,7 @@ export class OpenMovieComponent implements OnInit {
       this._moviesService.getOpenMovieFromServer(openMovieId).subscribe(data => {
         if (openMovieId != 0) {
           this._openMovie = data;
+          debugger
           this.openMovieForm = new FormGroup({
             Film: new FormControl(this._openMovie.Film),
             City: new FormControl(this._openMovie.City),
@@ -136,28 +236,28 @@ export class OpenMovieComponent implements OnInit {
             ContactCulture: new FormControl(this._openMovie.ContactCulture),
             InCharge: new FormControl(this._openMovie.InCharge),
             PeriodId: new FormControl(this._openMovie.PeriodId),
-            MovieDate: new FormControl(new Date(this._openMovie.MovieDate).toISOString().substring(0, 10)),
-            CityAddress: new FormControl(this._openMovie.CityAddress),
-            ContactCultureFirstName: new FormControl(this._openMovie.ContactCulture.ContactFirstName),
-            ContactCultureLastName: new FormControl(this._openMovie.ContactCulture.ContactLastName),
-            ContactCultureEmail: new FormControl(this._openMovie.ContactCulture.ContactEmail),
-            ContactCulturePhone: new FormControl(this._openMovie.ContactCulture.ContactPhone),
-            ContactCultureAddress: new FormControl(this._openMovie.ContactCulture.ContactAddress),
-            InChargeFirstName: new FormControl(this._openMovie.InCharge.ContactFirstName),
-            InChargeLastName: new FormControl(this._openMovie.InCharge.ContactLastName),
-            InChargeEmail: new FormControl(this._openMovie.InCharge.ContactEmail),
-            InChargePhone: new FormControl(this._openMovie.InCharge.ContactPhone),
-            InChargeAddress: new FormControl(this._openMovie.InCharge.ContactAddress),
-            NumberOfSeatsAuditorium: new FormControl(this._openMovie.NumberOfSeatsAuditorium),
-            WithEquipment: new FormControl(this._openMovie.WithEquipment),
-            EquipmentCost: new FormControl(this._openMovie.EquipmentCost),
-            AuditoriumCost: new FormControl(this._openMovie.AuditoriumCost),
-            CountParticipantsAfternoon: new FormControl(this._openMovie.CountParticipantsAfternoon),
-            CountParticipantsEvening: new FormControl(this._openMovie.CountParticipantsEvening),
-            TicketCostAfternoon: new FormControl(this._openMovie.TicketCostAfternoon),
-            TicketCostEvening: new FormControl(this._openMovie.TicketCostEvening),
-            InChargePaid: new FormControl(this._openMovie.InChargePaid),
-            NetProfitForDay: new FormControl(this._openMovie.NetProfitForDay)
+            MovieDate: new FormControl(new Date(this._openMovie.MovieDate).toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' ).substring(0, 10),[Validators.required]),
+            CityAddress: new FormControl(this._openMovie.CityAddress,[Validators.required]),
+            ContactCultureFirstName: new FormControl(this._openMovie.ContactCulture.ContactFirstName,[Validators.required]),
+            ContactCultureLastName: new FormControl(this._openMovie.ContactCulture.ContactLastName,[Validators.required]),
+            ContactCultureEmail: new FormControl(this._openMovie.ContactCulture.ContactEmail,[Validators.required]),
+            ContactCulturePhone: new FormControl(this._openMovie.ContactCulture.ContactPhone,[Validators.required]),
+            ContactCultureAddress: new FormControl(this._openMovie.ContactCulture.ContactAddress,[Validators.required]),
+            InChargeFirstName: new FormControl(this._openMovie.InCharge.ContactFirstName,[Validators.required]),
+            InChargeLastName: new FormControl(this._openMovie.InCharge.ContactLastName,[Validators.required]),
+            InChargeEmail: new FormControl(this._openMovie.InCharge.ContactEmail,[Validators.required]),
+            InChargePhone: new FormControl(this._openMovie.InCharge.ContactPhone,[Validators.required]),
+            InChargeAddress: new FormControl(this._openMovie.InCharge.ContactAddress,[Validators.required]),
+            NumberOfSeatsAuditorium: new FormControl(this._openMovie.NumberOfSeatsAuditorium,[Validators.required]),
+            WithEquipment: new FormControl(this._openMovie.WithEquipment,[Validators.required]),
+            EquipmentCost: new FormControl(this._openMovie.EquipmentCost,[Validators.required]),
+            AuditoriumCost: new FormControl(this._openMovie.AuditoriumCost,[Validators.required]),
+            CountParticipantsAfternoon: new FormControl(this._openMovie.CountParticipantsAfternoon,[Validators.required]),
+            CountParticipantsEvening: new FormControl(this._openMovie.CountParticipantsEvening,[Validators.required]),
+            TicketCostAfternoon: new FormControl(this._openMovie.TicketCostAfternoon,[Validators.required]),
+            TicketCostEvening: new FormControl(this._openMovie.TicketCostEvening,[Validators.required]),
+            InChargePaid: new FormControl(this._openMovie.InChargePaid,[Validators.required]),
+            NetProfitForDay: new FormControl(this._openMovie.NetProfitForDay,[Validators.required])
 
 
           });}
@@ -165,33 +265,34 @@ export class OpenMovieComponent implements OnInit {
           // debugger;
           this._openMovie = new classMovieOpen();
           this.openMovieForm = new FormGroup({
-            Film: new FormControl(""),
-            InChargeAmount:new FormControl(""),
-            ContactCulture: new FormControl(""),
-            InCharge: new FormControl(""),
-            PeriodId: new FormControl(""),
-            MovieDate: new FormControl(""),
+            Film: new FormControl("",[Validators.required]),
+            City: new FormControl("",[Validators.required]),
+            InChargeAmount:new FormControl("",[Validators.required]),
+            ContactCulture: new FormControl("",[Validators.required]),
+            InCharge: new FormControl("",[Validators.required]),
+            PeriodId: new FormControl("",[Validators.required]),
+            MovieDate: new FormControl(new Date().toISOString().substring(0, 10),[Validators.required]),
             CityAddress: new FormControl(""),
-            ContactCultureFirstName: new FormControl(""),
-            ContactCultureLastName: new FormControl(""),
-            ContactCultureEmail: new FormControl(""),
-            ContactCulturePhone: new FormControl(""),
+            ContactCultureFirstName: new FormControl("",[Validators.required]),
+            ContactCultureLastName: new FormControl("",[Validators.required]),
+            ContactCultureEmail: new FormControl("",[Validators.required]),
+            ContactCulturePhone: new FormControl("",[Validators.required]),
             ContactCultureAddress: new FormControl(""),
-            InChargeFirstName: new FormControl(""),
-            InChargeLastName: new FormControl(""),
-            InChargeEmail: new FormControl(""),
-            InChargePhone: new FormControl(""),
+            InChargeFirstName: new FormControl("",[Validators.required]),
+            InChargeLastName: new FormControl("",[Validators.required]),
+            InChargeEmail: new FormControl("",[Validators.required]),
+            InChargePhone: new FormControl("",[Validators.required]),
             InChargeAddress: new FormControl(""),
-            NumberOfSeatsAuditorium: new FormControl(""),
-            WithEquipment: new FormControl(""),
-            EquipmentCost: new FormControl(""),
-            AuditoriumCost: new FormControl(""),
-            CountParticipantsAfternoon: new FormControl(""),
-            CountParticipantsEvening: new FormControl(""),
-            TicketCostAfternoon: new FormControl(""),
-            TicketCostEvening: new FormControl(""),
-            InChargePaid: new FormControl(""),
-            NetProfitForDay: new FormControl("")
+            NumberOfSeatsAuditorium: new FormControl("",[Validators.required]),
+            WithEquipment: new FormControl(false,[Validators.required]),
+            EquipmentCost: new FormControl("",[Validators.required]),
+            AuditoriumCost: new FormControl("",[Validators.required]),
+            CountParticipantsAfternoon: new FormControl("",[Validators.required]),
+            CountParticipantsEvening: new FormControl("",[Validators.required]),
+            TicketCostAfternoon: new FormControl("",[Validators.required]),
+            TicketCostEvening: new FormControl("",[Validators.required]),
+            InChargePaid: new FormControl(false,[Validators.required]),
+            NetProfitForDay: new FormControl("",[Validators.required])
         })}
         //debugger;
        }, err => {

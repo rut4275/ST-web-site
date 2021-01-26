@@ -17,9 +17,10 @@ export class contactsService{
         return this._http.get<classContacts>("/api/contacts/"+id);
     }
 
-    // putOrderInServer(o: classBooksOrders): Observable<classBooksOrders> {
-    //     return this._http.post<classBooksOrders>("/api/books",o);
-    // }
+    putContactInServer(c: classContacts): Observable<classContacts> {
+        debugger
+        return this._http.post<classContacts>("/api/contacts",c);
+    }
 
     // updateOrderInServer(o: classBooksOrders): Observable<classBooksOrders> {
     //     return this._http.put<classBooksOrders>("/api/books",o);

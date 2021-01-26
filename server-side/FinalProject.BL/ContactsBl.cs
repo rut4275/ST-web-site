@@ -24,5 +24,12 @@ namespace FinalProject.BL
         {
             return await ContactsDl.getById(id);
         }
+
+
+        public async Task<Contacts> newContact(Contacts contact)
+        {
+            return await ContactsDl.newContact(contact);
+
+        }
     }
 }

@@ -36,8 +36,9 @@ namespace FinalProject.Controllers
 
         // POST api/<ContactsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<Contacts> Post([FromBody] Contacts contact)
         {
+            return await ContactsBl.newContact(contact);
         }
 
         // PUT api/<ContactsController>/5

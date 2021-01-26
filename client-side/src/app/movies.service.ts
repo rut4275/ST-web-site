@@ -46,4 +46,10 @@ export class moviesService{
     // updateOrderInServer(o: classBooksOrders): Observable<classBooksOrders> {
     //     return this._http.put<classBooksOrders>("/api/movies",o);
     // }
+    newMovieCloseToServer(movie:classMovieClose): Observable<classMovieClose> {
+        return this._http.post<classMovieClose>("/api/moviesClose",movie);
+    }
+    newMovieOpenToServer(movie:classMovieOpen): Observable<classMovieOpen> {
+        return this._http.post<classMovieOpen>("/api/moviesOpen",movie);
+    }
 }

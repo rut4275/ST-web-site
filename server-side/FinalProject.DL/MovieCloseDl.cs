@@ -43,6 +43,13 @@ namespace FinalProject.DL
             return movies;
         }
 
+        public async Task newMovieClose(MovieClose movieClose)
+        {
+            await context.MovieClose.AddAsync(movieClose);
+            //context.MovieClose.Update(movieClose);
+            await context.SaveChangesAsync();
+        }
+
         public async Task putMovie(MovieClose movieClose)
         {
             await context.MovieClose.ForEachAsync(m =>

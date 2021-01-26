@@ -41,6 +41,12 @@ namespace FinalProject.DL
             return movies;
         }
 
+        public void newMovieOpen(MovieOpen movieOpen)
+        {
+            context.MovieOpen.Add(movieOpen);
+            context.SaveChanges();
+        }
+
         public async Task putMovie(MovieOpen movieOpen)
         {
             await context.MovieOpen.ForEachAsync(m =>
@@ -51,6 +57,7 @@ namespace FinalProject.DL
                     m.ContactCultureId = movieOpen.ContactCultureId;
                     m.AuditoriumCost = movieOpen.AuditoriumCost;
                     m.CityId = movieOpen.CityId;
+                    m.CityAddress = movieOpen.CityAddress;
                     m.CountParticipantsAfternoon = movieOpen.CountParticipantsAfternoon;
                     m.CountParticipantsEvening = movieOpen.CountParticipantsEvening;
                     m.EquipmentCost = movieOpen.EquipmentCost;

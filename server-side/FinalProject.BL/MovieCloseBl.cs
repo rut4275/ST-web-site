@@ -24,6 +24,11 @@ namespace FinalProject.BL
             return await movieCloseDl.getMovieCloseById(id);
         }
 
+        public async Task newMovieClose(MovieClose movieClose)
+        {
+            await movieCloseDl.newMovieClose(movieClose);
+        }
+
         public async Task putMovie(MovieClose movieClose)
         {
             await movieCloseDl.putMovie(movieClose);

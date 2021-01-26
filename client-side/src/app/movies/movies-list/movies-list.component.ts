@@ -20,18 +20,18 @@ export class MoviesListComponent implements OnInit {
   //   this.moviesTypeOpen=isOpen;
   // }
 
-  newMovie(){
-    if(this.moviesTypeOpen){
-      this._router.navigate([])
-    }
-    else{
-
-    }
-  }
+  // newMovie(){
+  //   if(this.moviesTypeOpen){
+  //     this._router.navigate(['/openMovies',0, false])
+  //   }
+  //   else{
+  //     this._router.navigate(['/closeMovies',0, false]);
+  //   }
+  // }
   delete(idMovie:number){
 
   }
-  goToEdit(idMovie:number,flag:boolean){
+  goToEdit(idMovie:number,flag:number){
     debugger
     if(this.moviesTypeOpen){
       this._router.navigate(['/openMovies',idMovie, flag]);

@@ -7,7 +7,9 @@
     <div class="container contact-form">
         <!-- <p-scrollPanel style="width: 80%; height: 80%; margin-bottom: 20%;"> -->
         <form class="form" [formGroup]="openMovieForm" *ngIf="_openMovie" method="post" style=" position: relative; top: 100px;text-align: right;">
-            <h4> פרטי הקרנה פתוחה: {{_openMovie.Film.FilmName}} , {{_openMovie.CityAddress}}</h4>
+            <h4 *ngIf="flag"> פרטי הקרנה פתוחה: {{_openMovie.Film.FilmName}} , {{_openMovie.CityAddress}}</h4>
+            <h4 *ngIf="!flag"> הקרנה פתוחה חדשה</h4>
+
             <br>
                 <div class="row">
                     <div class="col-md-6" *ngIf="status==1">
@@ -15,12 +17,12 @@
                                 <label style="font-weight: bold;">פרטי הקרנה</label>
                                 <br>
                                 <label for="Film">שם הסרט</label><br>
-                                <p-dropdown id="Film" [options]="films" optionLabel="FilmName" formControlName="Film" [filter]="true" ></p-dropdown>
+                                <p-dropdown id="Film" [options]="films" optionLabel="FilmName" formControlName="Film" [filter]="true" placeholder="בחר סרט" ></p-dropdown>
                             </div>
                             <div style="text-align: right;" class="form-group">
 
                                 <label for="City">עיר</label><br>
-                                <p-dropdown id="City" [options]="cities" optionLabel="CityName" formControlName="City" [filter]="true" ></p-dropdown>
+                                <p-dropdown id="City" [options]="cities" optionLabel="CityName" formControlName="City" [filter]="true" placeholder="בחר עיר"></p-dropdown>
                             </div>
                             <div style="text-align: right;" class="form-group">
                                 <label for="CityAddress">כתובת ההקרנה</label>
@@ -29,7 +31,7 @@
 
                             <div style="text-align: right;" class="form-group">
                                 <label for="Period">עונה</label><br>
-                                <p-dropdown id="Period" [options]="periods" formControlName="PeriodId" [filter]="true" > </p-dropdown>
+                                <p-dropdown id="Period" [options]="periods" formControlName="PeriodId" [filter]="true" placeholder="בחר עונה"> </p-dropdown>
                               
                             </div>
 
@@ -44,13 +46,13 @@
  
                         <div style="text-align: right;" class="form-group">
                             <label for="ContactCulture">איש קשר בתרבות</label><br>
-                            <p-dropdown id="ContactCulture" [options]="contacts"  formControlName="ContactCulture" [filter]="true" (onChange)="updateContactCulture()"></p-dropdown>
+                            <p-dropdown id="ContactCulture" [options]="contacts"  formControlName="ContactCulture" [filter]="true" placeholder="בחר איש קשר" (onChange)="updateContactCulture()"></p-dropdown>
                          
                         </div>
 
                         <div style="text-align: right;" class="form-group">
                             <label for="InCharge">נאמנת</label><br>
-                            <p-dropdown id="InCharge" [options]="contacts"  formControlName="InCharge" [filter]="true" (onChange)="updateInCharge()"></p-dropdown>
+                            <p-dropdown id="InCharge" [options]="contacts"  formControlName="InCharge" [filter]="true" placeholder="בחר נאמנת" (onChange)="updateInCharge()"></p-dropdown>
                          
                         </div>
 
@@ -63,8 +65,8 @@
                        
 
                         <div style="text-align: right;" class="form-group">
-                            <label for="NumberOfSeatsAuditorium">תשלום לנאמנת</label>
-                            <input style="text-align: left;" type="number" id="NumberOfSeatsAuditorium" name="txtName" class="form-control" formControlName="NumberOfSeatsAuditorium" value="" />
+                            <label for="InChargeAmount">תשלום לנאמנת</label>
+                            <input style="text-align: left;" type="number" id="InChargeAmount" name="txtName" class="form-control" formControlName="InChargeAmount" value="" />
                         </div>
                         
                         
@@ -224,14 +226,18 @@
             
             <button *ngIf="status>1" pButton pRipple type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-danger" (click)="status=status-1"></button>
             <button *ngIf="5 > status" pButton pRipple type="button" icon="pi pi-angle-left" class="p-button-rounded" (click)="status=status+1"></button>
-            <button *ngIf="5 == status" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateOpenMovie()"></button>
+            <button *ngIf="5 == status && flag" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="updateOpenMovie()"></button>
+            <button *ngIf="5 == status && !flag" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded" (click)="newOpenMovie()"></button>
+
     </div>
+<app-contact-details-pop-up *ngIf="displayModal" [displayModal]="true" (newContactEvent)="newContact($event)"></app-contact-details-pop-up>
+
         </form>
 
         <!--  ניווט -->
         <div class="stepwizard" style="position:absolute; top:80px;left: 40px; width: 600px;text-align: right;"><!--  -->
             <div class="stepwizard-row">
-                <div class="stepwizard-step"style=" width: 20%;">
+                <div class="stepwizard-step" style=" width: 20%;">
                     <button pButton pRipple type="button" icon="pi pi-video" class="p-button-rounded p-button-danger"(click)="status=1"></button>
                     <p>1.פרטי הקרנה</p>
                 </div>
@@ -257,5 +263,6 @@
     <!-- </p-scrollPanel> -->
     </div>
     <!-- </body> -->
+    
     
     

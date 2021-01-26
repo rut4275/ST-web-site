@@ -11,6 +11,8 @@ import {RippleModule} from 'primeng/ripple';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {ToolbarModule} from 'primeng/toolbar';
 import {DropdownModule} from 'primeng/dropdown'; 
+import {DialogModule} from 'primeng/dialog';
+import { ContactsModule} from '../contacts/contacts.module'
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {DropdownModule} from 'primeng/dropdown';
     RippleModule,
     ScrollPanelModule,
     ToolbarModule,
-    DropdownModule
+    DropdownModule,
+    DialogModule,
+    ContactsModule
   ],
   exports: [MoviesListComponent, CloseMovieComponent, OpenMovieComponent, MoviesStatisticsComponent]
 })

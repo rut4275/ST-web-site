@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { contactsService } from 'src/app/contact.service';
+import {DialogModule} from 'primeng/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { classContacts } from 'src/app/Models/classContacts';
+
 
 @Component({
   selector: 'app-contact-details-pop-up',
@@ -8,10 +12,40 @@ import { contactsService } from 'src/app/contact.service';
   styleUrls: ['./contact-details-pop-up.component.css']
 })
 export class ContactDetailsPopUpComponent implements OnInit {
+  public contactForm: FormGroup;
+  private contact: classContacts;
+  @Input()
+  public displayModal:boolean;
+  @Output() newContactEvent = new EventEmitter<classContacts>();
 
-  constructor(private _acr:ActivatedRoute, private service: contactsService, private _router: Router) { }
-  currentDate;
+  newContact(){
+    debugger
+    this.contact.ContactFirstName = this.contactForm.controls["ContactFirstName"].value;
+    this.contact.ContactLastName= this.contactForm.controls["ContactLastName"].value;
+    this.contact.ContactEmail= this.contactForm.controls["ContactEmail"].value;
+    this.contact.ContactPhone= this.contactForm.controls["ContactPhone"].value;
+    this.contact.ContactAddress= this.contactForm.controls["ContactAddress"].value;
+    this.service.putContactInServer(this.contact).subscribe(data=>{
+      this.displayModal=false
+      debugger
+      this.newContactEvent.emit(data);
+    }, err => {
+      alert("שגיאה! לא נשמר איש קשר ");
+    });
+    
+  }
+  close(){
+    debugger
+    const c=new classContacts();
+    c.ContactId=-1;
+    this.newContactEvent.emit(c);
+  }
+  constructor(private _acr:ActivatedRoute, private service: contactsService, private _router: Router) { 
+    debugger
+  }
+  
   ngOnInit(): void {
+    debugger
     // this._acr.paramMap.subscribe(params => {
     //   let bookOrderId = +params.get("id");
     //   this.flag = Boolean(+params.get("flag"));
@@ -42,34 +76,20 @@ export class ContactDetailsPopUpComponent implements OnInit {
     //       });}
     //     else{
     //       debugger;
-    //       this._booksOrder = new classBooksOrders();
-    //       this.BooksOrderForm = new FormGroup({
-    //         CustomerId: new FormControl(""),
-    //         OrderDate: new FormControl(""),
-    //         AcceptLiscence: new FormControl(""),
-    //         WithReceipt: new FormControl(""),
-    //         Note: new FormControl(""),
-    //         TotalPrice: new FormControl(""),
-    //         Paid: new FormControl(""),
-    //         Supplied: new FormControl(""),
-    //         CustomerName: new FormControl(""),
-    //         CustomerAddress: new FormControl(""),
-    //         CustomerCategoryId: new FormControl(""),
-    //         CustomerCategorymerName: new FormControl(""),
-    //         ContactId: new FormControl(""),
-    //         ContactFirstName: new FormControl(""),
-    //         ContactLastName: new FormControl(""),
-    //         ContactEmail: new FormControl(""),
-    //         ContactPhone: new FormControl(""),
-    //         ContactAddress: new FormControl(""),
-    //         BooksOrderItem: new FormControl(""),
-    //     })}
+          this.contact = new classContacts();
+          this.contactForm = new FormGroup({
+            ContactLastName: new FormControl("",[Validators.required, Validators.minLength(2)]),
+            ContactEmail: new FormControl("",[Validators.required, Validators.minLength(5),Validators.email]),
+            ContactFirstName: new FormControl("",[Validators.required, Validators.minLength(2)]),
+            ContactPhone: new FormControl("",[Validators.required, Validators.minLength(9)]),
+            ContactAddress:new FormControl("",[Validators.minLength(3)])
+         })//}
     //     //debugger;
     //    }, err => {
     //      this._booksOrder = null;
     //   })
     // })
+  
   }
-
-
+  
 }

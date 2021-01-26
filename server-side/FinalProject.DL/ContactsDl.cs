@@ -26,5 +26,17 @@ namespace FinalProject.DL
             return await context.Contacts.Where(c=>c.ContactId==id).FirstOrDefaultAsync();
 
         }
+
+        public async Task<Contacts> newContact(Contacts contact)
+        {
+            await context.Contacts.AddAsync(contact);
+            await context.SaveChangesAsync();
+            return await context.Contacts.Where(c => c.ContactAddress == contact.ContactAddress 
+                                                   && c.ContactEmail == contact.ContactEmail
+                                                   && c.ContactFirstName == contact.ContactFirstName
+                                                   && c.ContactLastName == contact.ContactLastName
+                                                   && c.ContactPhone == contact.ContactPhone).FirstOrDefaultAsync();
+
+        }
     }
 }

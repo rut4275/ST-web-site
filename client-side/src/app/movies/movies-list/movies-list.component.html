@@ -4,7 +4,7 @@
 <div class="moviesList">
  <p-toolbar>
   <div class="p-toolbar-group-left">
-      <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="הקרנה חדשה" class="p-button-rounded p-button-denger" (click)="newMovie()"></button>
+      <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="הקרנה חדשה" class="p-button-rounded p-button-denger" (click)="goToEdit(0,0)"></button>
       <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="להקרנות סגורות" class="p-button-rounded p-button-denger" (click)="moviesTypeOpen=false" *ngIf="moviesTypeOpen" ></button>
       <button style="width: 10rem; left: 0%; top: 1%; text-align: center;" pButton pRipple type="button" label="להקרנות פתוחות" class="p-button-rounded p-button-denger" (click)="moviesTypeOpen=true" *ngIf="!moviesTypeOpen" ></button>
   </div>
@@ -42,7 +42,7 @@
         <tr  *ngFor="let item of moviesOpenList"  > <!-- (click)="goToEdit(item.BooksOrdersId,true)"-->
           <td style="text-align: center;"(click)="delete(item.MovieId)">
             <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button></td>
-        <td style="text-align: center;"(click)="goToEdit(item.MovieId,true)">
+        <td style="text-align: center;"(click)="goToEdit(item.MovieId,1)">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"></button></td>
           <td style="text-align: center;">{{item.ContactCulture.ContactFirstName}} {{item.ContactCulture.ContactLastName}}</td>
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>
@@ -87,7 +87,7 @@
           <td style="text-align: center;"(click)="delete(item.MovieId)">
             <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
           </td>
-        <td style="text-align: center;"(click)="goToEdit(item.MovieId,true)">
+        <td style="text-align: center;"(click)="goToEdit(item.MovieId,1)">
             <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"></button></td>
           <td style="text-align: center;">{{item.Contact.ContactFirstName}} {{item.Contact.ContactLastName}}</td>
           <td style="text-align: center;">{{item.InCharge.ContactFirstName}} {{item.InCharge.ContactLastName}}</td>

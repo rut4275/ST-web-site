@@ -8,5 +8,6 @@ namespace FinalProject.BL
     {
         Task<Contacts> getById(int id);
         Task<List<Contacts>> getAll();
+        Task<Contacts> newContact(Contacts contact);
     }
 }

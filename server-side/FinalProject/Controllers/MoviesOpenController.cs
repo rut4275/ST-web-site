@@ -40,11 +40,12 @@ namespace FinalProject.Controllers
         //    return await movieOpenBl.getMovieCloseById(id);
         //}
 
-        //   // POST: api/Movies
-        //   [HttpPost]
-        //   public void Post([FromBody] string value)
-        //   {
-        //   }
+        // POST: api/Movies
+        [HttpPost]
+        public void Post([FromBody] MovieOpen movieOpen)
+        {
+            movieOpenBl.newMovieOpen(movieOpen);
+        }
 
         [HttpPut("{id}")]
         public async Task Put(int id, [FromBody] MovieOpen movieOpen)

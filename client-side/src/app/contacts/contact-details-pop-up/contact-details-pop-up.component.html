@@ -1,1 +1,37 @@
-<p>contact-details-pop-up works!</p>
+
+    <p-dialog header="איש קשר חדש" [(visible)]="displayModal"  [modal]="true" (onHide)="close()" [style]="{width: '50vw'}" [baseZIndex]="10000"
+   [draggable]="false" [resizable]="false"><!--  [(visible)]="displayModal" -->
+    <form [formGroup]="contactForm">
+    <p class="p-m-0">
+        <div class="col-md-6">
+            <div style="text-align: right;" class="form-group">
+                <br>
+                <label for="ContactFirstName">שם פרטי</label>
+                <input style="text-align: right;" type="text" id="ContactFirstName" name="txtName" class="form-control" formControlName="ContactFirstName" required value="" />
+            </div>
+            <div style="text-align: right;" class="form-group">
+                <label for="ContactLastName">שם משפחה</label>
+                <input style="text-align: right;" type="text" id="ContactLastName" name="txtName" class="form-control" formControlName="ContactLastName" required value="" />
+            </div>
+            <div style="text-align: right;" class="form-group">
+                <label for="ContactEmail">אמייל</label>
+                <input style="text-align: right;" type="text" id="ContactEmail" name="txtName" class="form-control" formControlName="ContactEmail" required value="" />
+            </div>
+
+            <div style="text-align: right;" class="form-group">
+                <label for="ContactPhone">מספר פלאפון</label>
+                <input style="text-align: right;" type="text" id="ContactPhone" name="txtName" class="form-control" formControlName="ContactPhone" required value="" />
+            </div>
+            <div style="text-align: right;" class="form-group">
+                <label for="ContactAddress">כתובת</label>
+                <input style="text-align: right;" type="text" id="ContacAddress" name="txtName" class="form-control" formControlName="ContactAddress" value="" />
+            </div>
+
+
+        </div>
+        <button pButton pRipple type="button" icon="pi pi-check" label="שמור" (click)="newContact()" class="p-button-outlined" [disabled]="contactForm.invalid"></button>
+
+</form>
+</p-dialog>
+<!-- 
+<p>worker!!!!!</p> -->

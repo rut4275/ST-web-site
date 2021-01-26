@@ -41,8 +41,9 @@ namespace FinalProject.Controllers
 
         // POST: api/MoviesClose
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post([FromBody] MovieClose movieClose)
         {
+            await moviesCloseBl.newMovieClose(movieClose);
         }
 
         // PUT: api/MoviesClose/5

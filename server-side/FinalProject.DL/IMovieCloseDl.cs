@@ -9,5 +9,6 @@ namespace FinalProject.DL
         public Task<List<MovieClose>> getAll();
         Task<MovieClose> getMovieCloseById(int id);
         Task putMovie(MovieClose movieClose);
+        Task newMovieClose(MovieClose movieClose);
     }
 }
