@@ -49,7 +49,7 @@
                         </div>
                         <div style="text-align: right;" class="form-group">
                             <label for="TotalPrice">סה"כ לתשלום</label>
-                            <input style="text-align: right;" type="number" id="TotalPrice" name="txtName" class="form-control" formControlName="TotalPrice" value="" />
+                            <input disabled="true" style="text-align: right;" type="number" id="TotalPrice" name="txtName" class="form-control" formControlName="TotalPrice" value="" />
                         </div>
                 </div>
                 <div class="col-md-6" *ngIf="status==2">
@@ -133,19 +133,25 @@
                                         <p style="text-align: right; font-size: large; display: inline-block;">רשימת ספרים</p>
                                     </div>
                                     <div class="card-block p-0">
-                                        <table class="table table-bordered table-sm m-0">
+                                        <table id="booksTable" class="table table-bordered table-sm m-0">
                                             <thead class="">
                                                 <tr>
                                                     <th style="text-align: center;">שם ספר</th>
                                                     <th style="text-align: center;">כמות</th>
                                                     <th style="text-align: center;">סכום כולל</th>
+                                                    <th style="text-align: center;">עריכה</th>
+                                                    <th style="text-align: center;">מחיקה</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let item of _booksOrder.BooksOrderItem">
+                                                <tr id={{item.BookId}} *ngFor="let item of _booksOrder.BooksOrderItem">
                                                     <td style="text-align: center;">{{item.Book.NameBook}}</td>
-                                                    <td style="text-align: center;">{{item.Quantity}}</td>
-                                                    <td style="text-align: center;">{{item.TotalPrice}}</td>
+                                                    <td name="Quantity" style="text-align: center;">{{item.Quantity}}</td>
+                                                    <td name="Price" style="text-align: center;">{{item.UnitPrice*item.Quantity| number: '1.0-2'}}</td>
+                                                    <td style="text-align: center;"(click)="editOrderItem(item.BookId)">
+                                                        <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded"></button></td>
+                                                    <td style="text-align: center;"(click)="deleteOrderItem(item.BookId)">
+                                                        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -197,5 +203,20 @@
     </div>
 <!-- </p-scrollPanel> -->
 </div>
+
+
+<p-dialog header="הזן כמות ספרים" [(visible)]="displayModal" [style]="{width: '25vw'}" [baseZIndex]="10000">
+    <ng-template pTemplate="footer">
+        <!-- <div style="text-align: right;" class="form-group">
+            <input [(ngModel)]="newCount" style="text-align: right; width: 80%;" type="number" id="newCount" name="txtName" value="0" />
+        
+        </div>
+         -->
+    <div class="p-field p-col-12 p-md-3" [style]="{width: '80%'}">
+        <input [(ngModel)]="newCount" style="text-align: right; width: 100%;" type="number" id="newCount" name="txtName" value="1" min="1"/>
+    </div>
+    <button pButton pRipple type="button" icon="pi pi-check" label="שמור" (click)="changeCount()" class="p-button-outlined"></button>
+    </ng-template>
+</p-dialog>
 </body>
 

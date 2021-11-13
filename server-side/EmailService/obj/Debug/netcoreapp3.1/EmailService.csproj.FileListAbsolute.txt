@@ -25,3 +25,12 @@ C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\EmailServic
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\obj\Debug\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb

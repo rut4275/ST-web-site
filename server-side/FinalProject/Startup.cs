@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EmailService;
 using FinalProject.BL;
 using FinalProject.DL;
 using FinalProject.Models;
@@ -51,16 +50,18 @@ namespace FinalProject
             services.AddScoped(typeof(IContactsDl), typeof(ContactsDl));
             services.AddScoped(typeof(ICitiesBl), typeof(CitiesBl));
             services.AddScoped(typeof(ICitiesDl), typeof(CitiesDl));
+            services.AddScoped(typeof(IBooksOrderItemDl), typeof(BooksOrderItemDl));
+            services.AddScoped(typeof(IBooksOrderItemBl), typeof(BooksOrderItemBl));
 
             services.AddDbContext<FinalProjectContext>(options => options.UseSqlServer
               (Configuration.GetConnectionString("MySiteDB")));
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" }); });
             services.AddControllers().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
-            services.AddScoped<IEmailSender, EmailSender>();
-            var emailConfig = Configuration
-            .GetSection("EmailConfiguration")
-            .Get<EmailConfiguration>();
-            services.AddSingleton(emailConfig);
+            //services.AddScoped<IEmailSender, EmailSender>();
+            //var emailConfig = Configuration
+            //.GetSection("EmailConfiguration")
+            //.Get<EmailConfiguration>();
+            //services.AddSingleton(emailConfig);
             services.AddControllers();
 
         }

@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj": {}
+    "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj": {
+    "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj",
+        "projectUniqueName": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj",
         "projectName": "FinalProject.BL",
-        "projectPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj",
-        "packagesPath": "C:\\Users\\WIN10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.BL\\obj\\",
+        "projectPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.BL\\FinalProject.BL.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.BL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\WIN10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj": {
-                "projectPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj"
+              "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj": {
+                "projectPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj"
               }
             }
           }
@@ -51,26 +54,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj": {
+    "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj",
+        "projectUniqueName": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj",
         "projectName": "FinalProject.DL",
-        "projectPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj",
-        "packagesPath": "C:\\Users\\WIN10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DL\\obj\\",
+        "projectPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DL\\FinalProject.DL.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\WIN10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +95,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj": {
-                "projectPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj"
+              "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj": {
+                "projectPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj"
               }
             }
           }
@@ -123,26 +135,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj": {
+    "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj",
+        "projectUniqueName": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj",
         "projectName": "FinalProject.Entities",
-        "projectPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj",
-        "packagesPath": "C:\\Users\\WIN10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.Entities\\obj\\",
+        "projectPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.Entities\\FinalProject.Entities.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\WIN10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -181,12 +202,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

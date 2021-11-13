@@ -68,3 +68,17 @@ C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProjec
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.csproj.CopyComplete
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.dll
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.BL.deps.json
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.BL.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.BL.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.DL.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.Entities.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.DL.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.csprojAssemblyReference.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.AssemblyInfoInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.AssemblyInfo.cs
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.csproj.CoreCompileInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.csproj.CopyComplete
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.BL\obj\Debug\netcoreapp3.1\FinalProject.BL.pdb

@@ -9,9 +9,6 @@
         <nav style="position: fixed; width: 100%;" class="navbar navbar-expand navbar-dark bg-primary"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarsExample02">
                 <ul class="navbar-nav mr-auto">
-                    
-                    <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0"> </form>
             <div style="text-align: right;">
@@ -33,12 +30,23 @@
                 <ul class="sidebar-nav" style="top: 70%;">
                     <div style="text-align: center;" class="logo" value=""> SODOT </div>
                 </ul>
+
             </div> <!-- /#sidebar-wrapper -->
+            <!-- <p-galleria [(value)]="images" [containerStyle]="{'max-width': '640px'}" [numVisible]="2">
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item.previewImageSrc" style="width: 100%;" />
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                    <div class="p-grid p-nogutter p-justify-center">
+                        <img [src]="item.thumbnailImageSrc" />
+                    </div>
+                </ng-template>
+            </p-galleria> -->
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">
 
-
+  
 
 
                 </div>

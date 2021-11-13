@@ -5,6 +5,7 @@ export class classBooks{
     public BookId: number;
     public NameBook: string;
     public ClassBook: string;
+    public FilePath: string;
     public BooksCost: classBooksCost[];
     public BooksOrderItem: classBooksOrderItem[];
 }

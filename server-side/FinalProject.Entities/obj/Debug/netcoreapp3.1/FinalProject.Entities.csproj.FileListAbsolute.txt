@@ -43,3 +43,12 @@ C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProjec
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.CoreCompileInputs.cache
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.dll
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.deps.json
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\bin\Debug\netcoreapp3.1\FinalProject.Entities.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csprojAssemblyReference.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.AssemblyInfoInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.AssemblyInfo.cs
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.csproj.CoreCompileInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.Entities\obj\Debug\netcoreapp3.1\FinalProject.Entities.pdb

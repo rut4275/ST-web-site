@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj": {}
+    "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj": {
+    "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj",
+        "projectUniqueName": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj",
         "projectName": "FinalProject.DTO",
-        "projectPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj",
-        "packagesPath": "C:\\Users\\WIN10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DTO\\obj\\",
+        "projectPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DTO\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\WIN10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,12 +50,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -45,3 +45,6 @@ testem.log
 .DS_Store
 Thumbs.db
 #
+*.md
+*.js
+client-side/node_modules/object.values/.editorconfig

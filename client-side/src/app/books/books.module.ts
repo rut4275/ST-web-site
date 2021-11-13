@@ -10,6 +10,8 @@ import {ButtonModule} from 'primeng/button';
 import {RippleModule} from 'primeng/ripple';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {ToolbarModule} from 'primeng/toolbar';
+import {DialogModule} from 'primeng/dialog';
+import {InputNumberModule} from 'primeng/inputnumber';
 @NgModule({
   declarations: [BooksOrdersComponent, BooksEditComponent, BooksStatisticsComponent, BooksNewOrderComponent],
   imports: [
@@ -20,7 +22,9 @@ import {ToolbarModule} from 'primeng/toolbar';
     ButtonModule,
     RippleModule,
     ScrollPanelModule,
-    ToolbarModule
+    ToolbarModule,
+    DialogModule,
+    InputNumberModule
   ],
   exports:[BooksOrdersComponent, BooksEditComponent, BooksStatisticsComponent,BooksNewOrderComponent]
 })

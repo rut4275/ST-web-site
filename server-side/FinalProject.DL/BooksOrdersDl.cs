@@ -36,12 +36,13 @@ namespace FinalProject.DL
 
         public async Task<bool> PutOrders(BooksOrders booksOrders)
         {
+
+            //            var x = context.BooksOrders.Include(e => e.BooksOrderItem).ToList();
             await context.BooksOrders.ForEachAsync(b =>
               {
                   if (b.BooksOrdersId == booksOrders.BooksOrdersId)
                   {
                       b.AcceptLiscence = booksOrders.AcceptLiscence;
-                      b.BooksOrderItem = booksOrders.BooksOrderItem;
                       b.Customer = booksOrders.Customer;
                       b.CustomerId = booksOrders.CustomerId;
                       b.Note = booksOrders.Note;
@@ -50,10 +51,11 @@ namespace FinalProject.DL
                       b.Supplied = booksOrders.Supplied;
                       b.TotalPrice = booksOrders.TotalPrice;
                       b.WithReceipt = booksOrders.WithReceipt;
+                      b.BooksOrderItem = booksOrders.BooksOrderItem;
                   };
               });
             await context.SaveChangesAsync();
-            return false;
+            return true;
         }
     }
 }

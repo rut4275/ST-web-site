@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.userName = JSON.parse(sessionStorage.getItem("userName"));
-    
+
   }
   route(route){
     if(route == 'login'){
@@ -22,3 +22,4 @@ export class MenuComponent implements OnInit {
     this._router.navigate(['/'+ route]);
   }
 }
+

@@ -34,3 +34,12 @@ C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProjec
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.csproj.CoreCompileInputs.cache
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.dll
 C:\Users\WIN10\Documents\GitHub\finalProject\ST-web-site\server-site\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\bin\Debug\netcoreapp3.1\FinalProject.DTO.deps.json
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\bin\Debug\netcoreapp3.1\FinalProject.DTO.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\bin\Debug\netcoreapp3.1\FinalProject.DTO.pdb
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.csprojAssemblyReference.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.AssemblyInfoInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.AssemblyInfo.cs
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.csproj.CoreCompileInputs.cache
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.dll
+d:\Users\User\Desktop\שירה רות\פרויקט גמר\ST-web-site\server-side\FinalProject.DTO\obj\Debug\netcoreapp3.1\FinalProject.DTO.pdb

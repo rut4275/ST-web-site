@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZxpwA0Yso8pX/UKfHptEx4KoQgngd7UO6f8GT9eZNKM/k2Hd/YY2uJMPM8s+5e+LKsJTHxiWckqOMtSHB0ozJA==",
+  "dgSpecHash": "WNf+hXRt9ECZTK0PT3N8Ej0bBKD4PCFQ0LdXY9edXsHBjWGzkYrrQTs0wYPEGeJswsU0xzNU8Y4mcPsUCp34Ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\WIN10\\Documents\\GitHub\\finalProject\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "d:\\Users\\User\\Desktop\\שירה רות\\פרויקט גמר\\ST-web-site\\server-side\\FinalProject.DTO\\FinalProject.DTO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }

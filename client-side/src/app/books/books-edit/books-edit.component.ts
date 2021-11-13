@@ -20,7 +20,9 @@ export class BooksEditComponent implements OnInit {
   public _booksOrder: classBooksOrders;
   public _bookCustomer: classBooksCustomers;
   public status:number=1;
-
+  public newCount: number = 1;
+  public displayModal: boolean = false;
+  public tempBookId: number;
   @Input()
   flag: boolean;
 
@@ -67,7 +69,7 @@ updateBooksOrder() {
   this._booksOrder.AcceptLiscence = this.BooksOrderForm.controls["AcceptLiscence"].value;
   this._booksOrder.WithReceipt = this.BooksOrderForm.controls["WithReceipt"].value;
   this._booksOrder.Note = this.BooksOrderForm.controls["Note"].value;
-  this._booksOrder.TotalPrice = this.BooksOrderForm.controls["TotalPrice"].value;
+//this._booksOrder.TotalPrice = this.BooksOrderForm.controls["TotalPrice"].value;
   this._booksOrder.Paid = this.BooksOrderForm.controls["Paid"].value;
   this._booksOrder.Supplied = this.BooksOrderForm.controls["Supplied"].value;
   this._booksOrder.Customer.CustomerName = this.BooksOrderForm.controls["CustomerName"].value;
@@ -81,43 +83,62 @@ updateBooksOrder() {
   this._booksOrder.Customer.Contact.ContactPhone = this.BooksOrderForm.controls["ContactPhone"].value;
   this._booksOrder.Customer.Contact.ContactAddress = this.BooksOrderForm.controls["ContactAddress"].value;
   this._booksOrder.BooksOrderItem = this.BooksOrderForm.controls["BooksOrderItem"].value;
-  this.service.updateOrderInServer(this._booksOrder).subscribe(data=>{
-    this._router.navigate(["/books"]);
-    alert("ההזמנה עודכנה בהצלחה")
+  this.service.updateOrderItemsInServer(this._booksOrder).subscribe(data=>{
+    this._booksOrder.TotalPrice = 0;
+    debugger
+    this.BooksOrderForm.controls["BooksOrderItem"].value.forEach(element => {
+      this._booksOrder.TotalPrice += element.Quantity * element.UnitPrice;
+    });
+    this._booksOrder.TotalPrice.toFixed(2);
+    this.service.updateOrderInServer(this._booksOrder).subscribe(data=>{
+      this._router.navigate(["/books"]);
+      alert("ההזמנה עודכנה בהצלחה")
+    })
+    err => {
+      this._booksOrder = null;
+      alert("שגיאה בעדכון הפרטים, ההזמנה לא עודכנה")
+    };
   })
   err => {
-    this._booksOrder = null;
-    alert("שגיאה בעדכון הפרטים, ההזמנה לא עודכנה")
+    //this._booksOrder = null;
+    alert("שגיאה בעדכון הפרטים, המחיקה לא עודכנה")
   };
+  
 }
-// flag1 = true;
-// flag2 = false;
-// flag3 = false;
-// flag4 = false;
-// next2(){
-//   this.flag1 = false;
-//   this.flag2 = true;
-// }
-// next3(){
-//   this.flag2 = false;
-//   this.flag3=true;
-// }
-// next4(){
-//   this.flag3 = false;
-//   this.flag4=true;
-// }
-// back1(){
-//   this.flag2 = false;
-//   this.flag1 = true;
-// }
-// back2(){
-//   this.flag3 = false;
-//   this.flag2 = true;
-// }
-// back3(){
-//   this.flag4 = false;
-//   this.flag3 = true;
-// }
+editOrderItem(bookId: number){
+  this.displayModal = true;
+  this.tempBookId = bookId;
+}
+changeCount(){
+  this.displayModal = false;
+  this._booksOrder.BooksOrderItem.forEach(oi => 
+    {if(oi.BookId==this.tempBookId) 
+      oi.Quantity = this.newCount;}); 
+  document.getElementById(this.tempBookId.toString()).children.item(1).innerHTML = this.newCount.toString();
+  let tempUnitPrice = this._booksOrder.BooksOrderItem.find(oi => oi.BookId == this.tempBookId);
+  //alert(this.newCount*tempUnitPrice.UnitPrice)
+  document.getElementById(this.tempBookId.toString()).children.item(2).innerHTML = (this.newCount*tempUnitPrice.UnitPrice).toFixed(2).toString();
+  let sum = 0;
+  debugger
+  this._booksOrder.BooksOrderItem.forEach(oi => sum += oi.Quantity*oi.UnitPrice);
+  this.BooksOrderForm.controls["TotalPrice"].setValue(sum);
+  this._booksOrder.TotalPrice = sum;
+  this._booksOrder.TotalPrice.toFixed(2);
+  this.newCount = 1;
+  this.tempBookId = -1;
+}
+deleteOrderItem(bookId: number){
+  debugger
+  this._booksOrder.BooksOrderItem = this._booksOrder.BooksOrderItem.filter(oi => oi.BookId != bookId);
+  document.getElementById(bookId.toString()).remove();
+  this.BooksOrderForm.controls["BooksOrderItem"].setValue(this._booksOrder.BooksOrderItem);
+  let sum = 0;
+  this._booksOrder.BooksOrderItem.forEach(oi => sum += oi.Quantity*oi.UnitPrice);
+  this.BooksOrderForm.controls["TotalPrice"].setValue(sum);
+  this._booksOrder.TotalPrice = sum;
+  this._booksOrder.TotalPrice.toFixed(2);
+}
+
   constructor(private _acr:ActivatedRoute, private service: booksService, private _router: Router) { }
   currentDate;
   ngOnInit(): void {

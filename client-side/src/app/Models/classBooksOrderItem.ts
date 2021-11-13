@@ -6,7 +6,7 @@ export class classBooksOrderItem{
     public OrderId: number;
     public BookId: number;
     public Quantity: number;
-    public TotalPrice: number;
+    public UnitPrice: number;
     public Book: classBooks;
     public Order: classBooksOrders;
 }

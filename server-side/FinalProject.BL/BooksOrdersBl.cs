@@ -37,7 +37,8 @@ namespace FinalProject.BL
             //var files = Request.Form.Files.Any() ? Request.Form.Files : new FormFileCollection();
             //var message = new Message(new string[] { "codemazetest@mailinator.com" }, "Test mail with Attachments", "This is the content from our mail with attachments.", files);
             //await emailSender.SendEmailAsync(message);
-            
+            string email = ""; 
+            string password = "";
 
             //לעשות תנאי אם שולם
             string[] files = 
@@ -91,28 +92,28 @@ namespace FinalProject.BL
                     "מצורפים כאן קבצי העזר עבור ספרי סוד ההבעה שהוזמנו" + "\n" +
                     "שנת למידה מבורכת:)" + "\n" +
                     "מירי ואסתי";
-                //System.Net.Mail.Attachment attachment;
+                System.Net.Mail.Attachment attachment;
 
-                //if (arrBooks[0])
-                //{
-                //    attachment = new System.Net.Mail.Attachment(files[0]);
-                //    mail.Attachments.Add(attachment);
-                //}
-                //if (arrBooks[1])
-                //{
-                //    attachment = new System.Net.Mail.Attachment(files[1]);
-                //    mail.Attachments.Add(attachment);
-                //}
-                //if (arrBooks[2])
-                //{
-                //    attachment = new System.Net.Mail.Attachment(files[2]);
-                //    mail.Attachments.Add(attachment);
-                //    attachment = new System.Net.Mail.Attachment(files[3]);
-                //    mail.Attachments.Add(attachment);
-                //}
+                if (arrBooks[0])
+                {
+                    attachment = new System.Net.Mail.Attachment(files[0]);
+                    mail.Attachments.Add(attachment);
+                }
+                if (arrBooks[1])
+                {
+                    attachment = new System.Net.Mail.Attachment(files[1]);
+                    mail.Attachments.Add(attachment);
+                }
+                if (arrBooks[2])
+                {
+                    attachment = new System.Net.Mail.Attachment(files[2]);
+                    mail.Attachments.Add(attachment);
+                    attachment = new System.Net.Mail.Attachment(files[3]);
+                    mail.Attachments.Add(attachment);
+                }
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("rut4275@gmail.com", "");
+                SmtpServer.Credentials = new System.Net.NetworkCredential(email, password);
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EmailService;
 using FinalProject.BL;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -51,10 +50,11 @@ namespace FinalProject.Controllers
             await booksOrdersBl.PutOrders(booksOrders);
         }
 
-        // DELETE api/<BooksController>/5
+        //DELETE api/<BooksController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
         }
+
     }
 }

@@ -5,7 +5,7 @@ export class classBooksOrders{
     public CustomerId: number;
     public OrderDate: Date;
     public AcceptLiscence:boolean;
-    public WithReceipt:boolean;
+    public WithReceipt?:boolean;
     public Note:string;
     public TotalPrice:number;
     public Paid:boolean;
